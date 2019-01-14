@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #59: Experiments in real world payments</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #59: Experiments in real world payments</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Check out our new website Althea.org
+</section>
+<section data-field="body" class="e-content">
+<section name="5519" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="84f5" id="84f5" class="graf graf--h3 graf--leading graf--title">Althea Development Update #59: Experiments in real world payments</h3><p name="590d" id="590d" class="graf graf--p graf-after--h3">Check out our new website <a href="https://althea.org/" data-href="https://althea.org/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Althea.org</a></p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="7a0b" id="7a0b" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 1000px; max-height: 471px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 47.099999999999994%;"></div><img class="graf-image" data-image-id="1*sZlbFBNnSdDC6TIh0023ZA.png" data-width="5996" data-height="2827" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1000/1*sZlbFBNnSdDC6TIh0023ZA.png"></div><figcaption class="imageCaption">Coming soon on the new website, cool illustrated explanations and how-to’s for Althea</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="1057" id="1057" class="graf graf--p graf-after--figure">We’re approaching testnet readiness with bandwidth payments and we’ve started working on how to present the concept of device to device payments to people in the real world.</p><p name="25b4" id="25b4" class="graf graf--p graf-after--p">This is an exciting milestone that brings up some very important questions.</p><ul class="postList"><li name="1954" id="1954" class="graf graf--li graf-after--p">What kinds of incentives are really best at motivating people to sell bandwidth?</li><li name="632e" id="632e" class="graf graf--li graf-after--li">What kind of investment are people willing to make to do so?</li><li name="1d83" id="1d83" class="graf graf--li graf-after--li">What pain-points can we address in the design?</li></ul><p name="1a65" id="1a65" class="graf graf--p graf-after--li graf--trailing">With these questions in mind we’ve configured our <a href="https://github.com/althea-mesh/althea-firmware/releases/tag/alpha-10rc6" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/alpha-10rc6" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Alpha 10 release</a> as an experiment in payments. Allowing us to quickly test payments with real money in our Clatskanie test network.</p></div></div></section><section name="fc20" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="7086" id="7086" class="graf graf--h4 graf--leading">Designing an experiment in payments</h4><p name="b0c2" id="b0c2" class="graf graf--p graf-after--h4">Testnet bandwidth payments are on schedule to start next week, but I won’t be surprised if it’s the end of November before they are stable enough for real world testing to begin. With truly autonomous payments there’s a lot of edge cases with wallet and channel management that you have to answer correctly.</p><p name="8ffd" id="8ffd" class="graf graf--p graf-after--p">Ideally we want to work on figuring out how to present and design bandwidth payments from a human perspective in parallel to the technical completion.</p><p name="690d" id="690d" class="graf graf--p graf-after--p">So we came up with a quick and dirty idea that lets us perform a small scale experiment in our of our test networks.</p><p name="fdfd" id="fdfd" class="graf graf--p graf-after--p">The payment channel transactions aren’t quite ready but we do perform bandwidth accounting correctly. So instead of turning that into a transaction and sending it to the blockchain we send it to a server. From there we can pay users in our Clatskanie test network for bandwidth by hand.</p><p name="ef76" id="ef76" class="graf graf--p graf-after--p">It’s not exactly elegant and doesn’t really work well at all unless you have people on the ground. But it does allow people to be confident they will be paid for expanding the network and make money installing nodes.</p><p name="d7cc" id="d7cc" class="graf graf--p graf-after--p">Which is all we really need to observe what motivates people and iterate on how we present bandwidth payments and Althea to real people as a product to use. Not just a technical curiosity.</p><p name="d30f" id="d30f" class="graf graf--p graf-after--p">Some interesting lessons learned already, as we prepare to roll this out next week.</p><ul class="postList"><li name="57f7" id="57f7" class="graf graf--li graf-after--p">People are more motivated by saving $40/mo than making $40/mo. Hooking up a single neighbor for the money is a less powerful motivator than ‘being a good neighbor’ and helping them save money.</li><li name="e8fc" id="e8fc" class="graf graf--li graf-after--li">Somewhat hilariously nearly everyone wants to help out their neighbor but almost no one totally trusts their neighbor to help them out.</li><li name="fef3" id="fef3" class="graf graf--li graf-after--li">Money does become a clear motivator once you reach ‘side hustle’ status of at least a couple hundred dollars a month, so hooking up several homes.</li><li name="2035" id="2035" class="graf graf--li graf-after--li graf--trailing">Cheaper internet is much less of a motivator than bad internet when it comes to people being interested and willing to try Althea.</li></ul></div></div></section><section name="3758" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="594e" id="594e" class="graf graf--h4 graf--leading">Technical Progress Update</h4><p name="5d43" id="5d43" class="graf graf--p graf-after--h4"><strong class="markup--strong markup--p-strong">Network DAO payments</strong></p><ol class="postList"><li name="a483" id="a483" class="graf graf--li graf-after--p">Deploy Aragon OS</li><li name="f63e" id="f63e" class="graf graf--li graf-after--li">Deploy Aragon OS apps</li><li name="570b" id="570b" class="graf graf--li graf-after--li">Deploy Network DAO factory &lt; = we are here</li><li name="4135" id="4135" class="graf graf--li graf-after--li">Network DAO factory can be called to deploy a new Aragon DAO with the Althea DAO app preinstalled.</li></ol><p name="cce4" id="cce4" class="graf graf--p graf-after--li">Stalled waiting on the next major Aragon version, they have been helpful and will be assigning a dev to assist us once they finish their current sprint.</p><p name="3d93" id="3d93" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Bandwidth Payments</strong></p><ol class="postList"><li name="326f" id="326f" class="graf graf--li graf-after--p">Create light client that works on routers and embedded devices.</li><li name="30aa" id="30aa" class="graf graf--li graf-after--li">Create a bidirectional payment channel and deploy it.</li><li name="bf2d" id="bf2d" class="graf graf--li graf-after--li">Integrate the light client and existing billing code.</li><li name="e35c" id="e35c" class="graf graf--li graf-after--li">Integrate the #3 with the payment channel.</li><li name="8ce7" id="8ce7" class="graf graf--li graf-after--li">Integrate billing code with existing accounting code. &lt; = we are here</li><li name="19c6" id="19c6" class="graf graf--li graf-after--li">Comprehensively test this entire stack.</li></ol><p name="9bce" id="9bce" class="graf graf--p graf-after--li graf--trailing">Pretty good progress on bandwidth payments, we’ve progressed to integrating our payment channel contracts with the actual router billing code. During this process we’ve stumbled upon a lot of user experience challenges, mainly with automated wallet management, that we’re now working on in parallel with our bandwidth payments test.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a>, <a href="https://medium.com/tag/design-process" class="p-tag">Design Process</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/dd9cd7e58dce"><time class="dt-published" datetime="2018-10-27T15:57:30.348Z">October 27, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-59-experiments-in-real-world-payments-dd9cd7e58dce" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

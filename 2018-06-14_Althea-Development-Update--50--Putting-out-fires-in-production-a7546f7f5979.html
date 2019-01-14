@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #50: Putting out fires in production</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #50: Putting out fires in production</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Last update we created a ‘stable’ release channel and rolled out our latest and greatest to the 7 devices we had in production.
+</section>
+<section data-field="body" class="e-content">
+<section name="0ac1" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3f21" id="3f21" class="graf graf--h3 graf--leading graf--title">Althea Development Update #50: Putting out fires in production</h3><p name="7792" id="7792" class="graf graf--p graf-after--h3">Last <a href="https://medium.com/althea-mesh/althea-development-update-49-alpha-3-and-starting-a-stable-release-schedule-7d77a67fcb29" data-href="https://medium.com/althea-mesh/althea-development-update-49-alpha-3-and-starting-a-stable-release-schedule-7d77a67fcb29" class="markup--anchor markup--p-anchor" target="_blank">update</a> we created a ‘stable’ release channel and rolled out our latest and greatest to the 7 devices we had in production.</p><p name="930f" id="930f" class="graf graf--p graf-after--p">By production I mean on real radios and in other people’s homes as a source of internet access. Despite performing admirably in testing everything, of course, immediately started crashing.</p><p name="3f40" id="3f40" class="graf graf--p graf-after--p">Earlier this week we managed to clean up all the race conditions that might cause odd crashes, reduce spam routes that leaked in form exits, and generally polish off a lot of rough edges. That’s all in <a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.1" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.1" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Alpha 4</a></p><p name="4a12" id="4a12" class="graf graf--p graf-after--p">But we still had a problem.</p><p name="9738" id="9738" class="graf graf--p graf-after--p">Once the crashes where out of the way it became clear that radio performance had tanked. Your first instinct may be ‘well the new software doesn’t perform well’ that’s what we thought too.</p><figure name="003b" id="003b" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 398px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 75.8%;"></div><img class="graf-image" data-image-id="1*SVD3eLqq3BgEF39qPaYDYQ.png" data-width="1919" data-height="1455" src="https://cdn-images-1.medium.com/max/600/1*SVD3eLqq3BgEF39qPaYDYQ.png"></div><figcaption class="imageCaption">TCP dump of dup acks trying to resolve out of order packets</figcaption></figure><p name="51bd" id="51bd" class="graf graf--p graf-after--figure">But after a series of performance tests we where able to determine that the performance drop can be attributed directly to the traffic over the radios themselves.</p><p name="f2cc" id="f2cc" class="graf graf--p graf-after--p">It seems that when you send a ipv6 peer discovery packet on some Ubiquiti firmwares it causes a sudden and dramatic drop in throughput and dramatic latency spikes, even reordering of packets. Which does not a happy TCP session make. Definitely the sort of issue you only find in production.</p><p name="9f3b" id="9f3b" class="graf graf--p graf-after--p graf--trailing">We’re still working on if the solution to this is re-factoring our neighbor discovery protocol to be more restricted or if just updating the firmware on all radios involved is sufficient.</p></div></div></section><section name="9331" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="7dbc" id="7dbc" class="graf graf--p graf--leading">Speaking of those performance tests, we gathered some very <a href="https://forum.altheamesh.com/t/althea-performance/44" data-href="https://forum.altheamesh.com/t/althea-performance/44" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">interesting data</a>. It seems our current software is mostly memory bound in terms of networking speed. On embedded devices like routers this means you want a lot of cores, the more or higher frequency the better, to handle all the copying. On more advanced platforms like x86 the clockspeed advantage goes away since there is dedicated hardware for memory copying and it simply becomes a memory frequency war.</p><p name="ad96" id="ad96" class="graf graf--p graf-after--p graf--trailing">As a summary a $15 router gets you 20mbps of encrypted throughput, $60 gets you 45mbps and $160 gets 300mbps. I couldn’t really test the throughput of anything faster than with the confidence I would like. I’m satisfied that we’ve reached a decent price to performance ratio now that we’ve got our general network structure finalized.</p></div></div></section><section name="8792" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="fdba" id="fdba" class="graf graf--p graf--leading">Deborah is busy on outreach, working on building an Althea community in Portland over the next couple of months.</p><figure name="eb15" id="eb15" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 340px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 48.6%;"></div><img class="graf-image" data-image-id="1*NN5lMLv35z7fnywWN70w7Q.jpeg" data-width="2016" data-height="980" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*NN5lMLv35z7fnywWN70w7Q.jpeg"></div></figure><p name="58ad" id="58ad" class="graf graf--p graf-after--figure">They met up this weekend for a flashing party, playing around with our latest release and planning a network.</p><p name="aeaf" id="aeaf" class="graf graf--p graf-after--p graf--trailing">Coming up in the next couple of weeks is Alpha 5, which will include some new features in addition to more bugfixes. As well as an AMA hosted on Reddit’s <a href="https://www.reddit.com/r/darknetplan/" data-href="https://www.reddit.com/r/darknetplan/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">mesh networking community,</a> this coming Sunday the 17th.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/rustlang" class="p-tag">Rustlang</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a>, <a href="https://medium.com/tag/tcp" class="p-tag">Tcp</a>, <a href="https://medium.com/tag/community-building" class="p-tag">Community Building</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/a7546f7f5979"><time class="dt-published" datetime="2018-06-14T22:34:37.886Z">June 14, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-50-putting-out-fires-in-production-a7546f7f5979" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #47: Alpha 2 Milestone</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #47: Alpha 2 Milestone</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I’m proud to announce the alpha 2 milestone for Althea. In Alpha 1 firmware setup was too tightly integrated into the build process to…
+</section>
+<section data-field="body" class="e-content">
+<section name="66de" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6a7c" id="6a7c" class="graf graf--h3 graf--leading graf--title">Althea Development Update #47: Alpha 2 Milestone</h3><p name="751b" id="751b" class="graf graf--p graf-after--h3">I’m proud to announce the alpha 2 milestone for Althea. In Alpha 1 firmware setup was too tightly integrated into the build process to provide golden master images.</p><p name="c8ed" id="c8ed" class="graf graf--p graf-after--p">Alpha 2 marks that milestone, from here on out nightly firmware releases will be available and when flashed they will auto configure with our test exit and provide internet to you and any other members of a local mesh.</p><p name="6a3a" id="6a3a" class="graf graf--p graf-after--p">From here on out it should be pretty straightforward for anyone to flash and play around with Althea. Nightly firmware images and flashing instructions are available on our <a href="https://github.com/althea-mesh/althea-firmware/tree/pre-0.1.0" data-href="https://github.com/althea-mesh/althea-firmware/tree/pre-0.1.0" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">firmware page</a>.</p><figure name="42de" id="42de" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 467px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 66.7%;"></div><img class="graf-image" data-image-id="1*LWzaly0_uLbs5rb05d4_zA.jpeg" data-width="2286" data-height="1524" src="https://cdn-images-1.medium.com/max/800/1*LWzaly0_uLbs5rb05d4_zA.jpeg"></div><figcaption class="imageCaption">Articles without pictures are boring</figcaption></figure><h4 name="8e44" id="8e44" class="graf graf--h4 graf-after--figure">What’s New</h4><ul class="postList"><li name="42f2" id="42f2" class="graf graf--li graf-after--h4">Exit autoconfiguration</li><li name="45cc" id="45cc" class="graf graf--li graf-after--li">User credential autogeneration</li><li name="bcb9" id="bcb9" class="graf graf--li graf-after--li">Traffic watching and accounting (it will generate a bill/invoice, but won’t pay it)</li><li name="6d34" id="6d34" class="graf graf--li graf-after--li">Peer discovery and negotiation of secure peer tunnels</li><li name="1444" id="1444" class="graf graf--li graf-after--li">Usable nightly builds: <a href="https://github.com/althea-mesh/althea-firmware/tree/pre-0.1.0" data-href="https://github.com/althea-mesh/althea-firmware/tree/pre-0.1.0" class="markup--anchor markup--li-anchor" rel="noopener" target="_blank">available here</a></li></ul><h4 name="2de8" id="2de8" class="graf graf--h4 graf-after--li">What’s Almost Ready (aka Alpha 3)</h4><ul class="postList"><li name="7dd9" id="7dd9" class="graf graf--li graf-after--h4">Ready for full time use by the adventurous</li><li name="ebdd" id="ebdd" class="graf graf--li graf-after--li">User interface extensions and improvement</li><li name="738e" id="738e" class="graf graf--li graf-after--li">A real exit signup process</li><li name="4067" id="4067" class="graf graf--li graf-after--li">Load statistics gathering and the requisite opt in/out button.</li><li name="f9dd" id="f9dd" class="graf graf--li graf-after--li">Automated exit load balancing client side</li><li name="ecfb" id="ecfb" class="graf graf--li graf-after--li">Package updates pushed daily (so you don’t have to reflash the nightly to keep up)</li><li name="1fbd" id="1fbd" class="graf graf--li graf-after--li">Everything we think is working but will inevitably end up being actually broken in Alpha 2</li></ul><p name="7619" id="7619" class="graf graf--p graf-after--li">Long story short, if you flash our nightly firmware builds right now you’ll get a working internet connection in a minute or so and be able to mesh with other parties and determine what each party should pay or be paid.</p><p name="a683" id="a683" class="graf graf--p graf-after--p">What’s missing for Alpha 3 is mostly user interface stuff, the UI is being served at 192.168.1.1/althea in Alpha 2 but isn’t actually hooked into the application.</p><p name="bc5e" id="bc5e" class="graf graf--p graf-after--p graf--trailing">We also need a real sign up process implemented in the user interface, right now our dev exit serves any Althea user and doesn’t gather country codes/emails and enforce some level of region locking. Which is required to keep Netflix and other streaming services from blocking us as a VPN rather than an ‘ISP’.</p></div></div></section><section name="1cea" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="d6ac" id="d6ac" class="graf graf--p graf--leading">The short term plan is to get Alpha 3 out the door and then try and get as many users as possible online so that we can hash out bugs in parallel to the development of the real billing code. We won’t be actually charging people for service yet, but we will be watching carefully to make sure the accounting is accurate, so that we can deploy real payments with confidence when they are ready.</p><p name="7ea7" id="7ea7" class="graf graf--p graf-after--p graf--trailing">For a lot of people I expect Althea will be attractive simply as a whole home VPN solution that just to happens to make it very easy to hook up your neighbor.</p></div></div></section><section name="aef1" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="2451" id="2451" class="graf graf--p graf--leading graf--trailing">On the more business side of things we’re at EDcon in Toronto this week watching Vitalik <a href="https://www.youtube.com/watch?v=kUheuFDHSvI&amp;feature=youtu.be" data-href="https://www.youtube.com/watch?v=kUheuFDHSvI&amp;feature=youtu.be" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">dance</a> and meeting up with the local Toronto Mesh group <a href="https://tomesh.net/" data-href="https://tomesh.net/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">TOmesh</a>.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/vpn" class="p-tag">VPN</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/671966042f79"><time class="dt-published" datetime="2018-05-04T14:32:43.480Z">May 4, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-47-alpha-2-milestone-671966042f79" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

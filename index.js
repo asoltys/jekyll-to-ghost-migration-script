@@ -3,7 +3,6 @@ const fs = require('fs')
 const markdown = require('markdown').markdown
 const uuidv4 = require('uuid/v4')
 const objid = require('bson-objectid')
-const kebab = require('just-kebab-case')
 const converter = require('@tryghost/html-to-mobiledoc')
 const l = console.log
 

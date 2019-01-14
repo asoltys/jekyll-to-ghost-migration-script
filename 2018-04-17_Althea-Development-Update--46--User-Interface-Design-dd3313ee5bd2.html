@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #46: User Interface Design</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #46: User Interface Design</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+It’s been an eventful couple of weeks for us.
+</section>
+<section data-field="body" class="e-content">
+<section name="313b" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="245b" id="245b" class="graf graf--h3 graf--leading graf--title">Althea Development Update #46: User Interface Design</h3><p name="23a2" id="23a2" class="graf graf--p graf-after--h3">It’s been an eventful couple of weeks for us.</p><p name="14d9" id="14d9" class="graf graf--p graf-after--p">Our head of outreach Deborah has been organizing local mesh groups in Vancouver BC, Tacoma WA and Portland OR. The biggest challenge is finding good resalable backhaul, it’s a business to business market unused to amateurs. We’re working on making partnerships to simplify that.</p><p name="a9e1" id="a9e1" class="graf graf--p graf-after--p">Last week we showed off the off grid tower<a href="https://imgur.com/a/0uKrE" data-href="https://imgur.com/a/0uKrE" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"> Cascadian Meshnet </a>has been working on. It survived it’s first storm (~50mph gusts) with <a href="https://imgur.com/a/CRyQF" data-href="https://imgur.com/a/CRyQF" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">no damage</a>.</p></div><div class="section-inner sectionLayout--fullWidth"><figure name="d5bd" id="d5bd" class="graf graf--figure graf--layoutFillWidth graf-after--p graf--trailing"><div class="aspectRatioPlaceholder is-locked"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 66.7%;"></div><img class="graf-image" data-image-id="1*qjFWyeFXoVOaPWrs5-aPJQ.jpeg" data-width="5532" data-height="3688" src="https://cdn-images-1.medium.com/max/2560/1*qjFWyeFXoVOaPWrs5-aPJQ.jpeg"></div><figcaption class="imageCaption">Pre-storm photo of the tower. With two air-grid M’s mounted</figcaption></figure></div></div></section><section name="0b3f" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="b869" id="b869" class="graf graf--p graf--leading">On the software side things are coming together for our next major revision. A big feature for this revision is a pretty barebones user interface. It hits all the major points for configuring basic options and seeing what’s going on with the mesh.</p><figure name="01d8" id="01d8" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 354px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 67.5%;"></div><img class="graf-image" data-image-id="1*HfGyMpbrUjkw5ANF1y2-qA.png" data-width="1822" data-height="1229" src="https://cdn-images-1.medium.com/max/600/1*HfGyMpbrUjkw5ANF1y2-qA.png"></div><figcaption class="imageCaption">Payment handling page on the Althea Dashboard</figcaption></figure><figure name="ebc7" id="ebc7" class="graf graf--figure graf--layoutOutsetLeft graf-after--figure"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 573px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 109.1%;"></div><img class="graf-image" data-image-id="1*lHVwQKnQCGhGn8uk7BKgtw.png" data-width="1754" data-height="1913" src="https://cdn-images-1.medium.com/max/600/1*lHVwQKnQCGhGn8uk7BKgtw.png"></div><figcaption class="imageCaption">The connection status page on the Althea Dashboard</figcaption></figure><p name="cf90" id="cf90" class="graf graf--p graf-after--figure">A good deal of the work right now is just getting the router to serve the dashboard webpage and then allowing that dashboard webpage to query all the information it needs to present to the user. Feedback on desired options is welcome.</p><p name="dbfe" id="dbfe" class="graf graf--p graf-after--p">Our bet on Rust continues to pay off, the current router application has a great runtime footprint, even using fully featured libraries for handling http requests and threads it still only requires 20mb of ram.</p><p name="89c9" id="89c9" class="graf graf--p graf-after--p">If we could only get that binary size below 2mb it would be perfect. We may yet make that happen using a binary packer or Xargo.</p><p name="84bb" id="84bb" class="graf graf--p graf-after--p">In general we’re in the integration and polish phase of this release. I’m hoping to be ready to release the next version of Althea’s firmware in a month or so.</p><p name="4b2e" id="4b2e" class="graf graf--p graf-after--p graf--trailing">This version will be what I consider to be late Alpha. With all the features required for easy setup and basic use. But no functioning payments.</p></div></div></section><section name="b79c" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="3638" id="3638" class="graf graf--p graf--leading">The last thing we’ve been working on is supplier relationships. The logistics challenge of buying, flashing, and then shipping out routers is time consuming and somewhat expensive. Our goal is to have a smooth transition to suppliers, who will be better able to handle the logistics challenges of moving hundreds of devices so that we can scale quickly.</p><p name="7b7d" id="7b7d" class="graf graf--p graf-after--p graf--trailing">Lots of moving pieces involved in building the infrastructure of the future. But I think we’re staying on top of it ok.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/altheamesh" class="p-tag">Altheamesh</a>, <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/dd3313ee5bd2"><time class="dt-published" datetime="2018-04-17T22:56:50.786Z">April 17, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-46-user-interface-design-dd3313ee5bd2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

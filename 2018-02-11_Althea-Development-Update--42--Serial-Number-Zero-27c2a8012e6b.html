@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #42: Serial Number Zero</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #42: Serial Number Zero</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Its been a very busy two weeks since my last update.
+</section>
+<section data-field="body" class="e-content">
+<section name="9126" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8939" id="8939" class="graf graf--h3 graf--leading graf--title">Althea Development Update #42: Serial Number Zero</h3><p name="69f7" id="69f7" class="graf graf--p graf-after--h3">Its been a very busy two weeks since my last update.</p><p name="a5fe" id="a5fe" class="graf graf--p graf-after--p">Not only did I get to see the Falcon Heavy finally fly from the cape, but I also finished the Althea alpha firmware.</p><p name="c015" id="c015" class="graf graf--p graf-after--p">Right now OpenWRT devices flashed with Althea firmware using our <a href="https://github.com/jkilpatr/althea-firmware" data-href="https://github.com/jkilpatr/althea-firmware" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">firmware builder</a> automatically connect to the local Babel mesh network. They then create a secure WireGuard tunnel to exit.altheamesh.com which all internet traffic is put through.</p><p name="1961" id="1961" class="graf graf--p graf-after--p">There’s no extra configuration required beyond connecting the devices to another mesh node by whatever method is available, just plug-in and instant secure internet access.</p><p name="b142" id="b142" class="graf graf--p graf-after--p">Our first devices are WD myNet N600’s a now defunct but reliable and cheaply available fast Ethernet (100 mbps) router. My own tests show that a user can expect to get 30/50 mbps over the mesh, I’m hoping to ratchet it up to line rate with some additional optimizations.</p><p name="32d8" id="32d8" class="graf graf--p graf-after--p">These devices are packed for transit to Clatskanie Oregon where members of <a href="https://steemit.com/cryptocurrency/@incentivizedmesh/update-on-the-incentivized-mesh-network-or-what-are-we-doing-with-these-antennas-in-the-woods" data-href="https://steemit.com/cryptocurrency/@incentivizedmesh/update-on-the-incentivized-mesh-network-or-what-are-we-doing-with-these-antennas-in-the-woods" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Cascadian Mesh</a> are wrapping up antenna installation. In this first phase of the deployment 6 users are being installed with taller masts and higher powered antennas. Using this extended line of sight these nodes will form the backbone of a network by reselling internet to their neighbors.</p><figure name="b7ea" id="b7ea" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 338px; max-height: 600px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 177.5%;"></div><img class="graf-image" data-image-id="1*8x6AT-wNad5WEkt8Qs4XXw.jpeg" data-width="338" data-height="600" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*8x6AT-wNad5WEkt8Qs4XXw.jpeg"></div><figcaption class="imageCaption">Installation of a home in Clatskanie</figcaption></figure><p name="3bc8" id="3bc8" class="graf graf--p graf-after--figure">Chances are we’ll have to swap out these n600’s for faster devices within the year. If the network grows quickly these backbone units will get overloaded. But that’s a good problem to have, especially when you’re being paid to pass traffic.</p><p name="0697" id="0697" class="graf graf--p graf-after--p">Speaking of payment, Rita our billing daemon is taking shape and should be ready to push to these devices by our next update. That will mark our movement from testing basic networking structure into testing billing components.</p><p name="2a47" id="2a47" class="graf graf--p graf-after--p">Our short term goals focus on two things</p><ul class="postList"><li name="5269" id="5269" class="graf graf--li graf-after--p">Getting billing and payments finished, tested, and audited</li><li name="2ec1" id="2ec1" class="graf graf--li graf-after--li">Making the deployment experience as easy as possible</li></ul><p name="faae" id="faae" class="graf graf--p graf-after--li">Right now if words like ‘ssh’ don’t scare you the deployment experience is pretty straightforward and just missing our (soon to be published) guide to setting up an Althea mesh network.</p><p name="cc5a" id="cc5a" class="graf graf--p graf-after--p">But we want to bring the barriers to starting an Althea network far lower than that. There are some plans on the drawing board for turning a Raspberry PI into an automated flashing device. That just installs Althea into whatever you plug into it, no Linux know how required.</p><p name="8566" id="8566" class="graf graf--p graf-after--p">We also need to secure a modern, cost-effective, and easy to flash supply of routers. N600’s are great but hard to come by outside of occasional fire sales. Devices like the Turris Omnia are expensive overkill for anything but the most active of backbone nodes.</p><p name="78c4" id="78c4" class="graf graf--p graf-after--p">For those interested in playing around with the Althea Alpha drop by our <a href="https://riot.im/app/#/room/#althea:matrix.org" data-href="https://riot.im/app/#/room/#althea:matrix.org" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">chat</a> and ping me (@ttk2) if you’re not afraid of the Linux terminal and have a couple of OpenWRT devices lying around we should be able to get things working.</p><p name="6c31" id="6c31" class="graf graf--p graf-after--p graf--trailing">If you want to help deploy Althea in your area shoot us an email at hello@altheamesh.com. We guide people through the process of setting up a deployment and will started as the software reaches your skill level to use.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/raspberry-pi" class="p-tag">Raspberry Pi</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/cryptocurrency" class="p-tag">Cryptocurrency</a>, <a href="https://medium.com/tag/distributed-systems" class="p-tag">Distributed Systems</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/27c2a8012e6b"><time class="dt-published" datetime="2018-02-11T20:42:35.000Z">February 11, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-42-serial-number-zero-27c2a8012e6b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

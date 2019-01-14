@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #52: Asking the right questions about performance</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #52: Asking the right questions about performance</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Here’s our Alpha 6 release
+</section>
+<section data-field="body" class="e-content">
+<section name="4fe0" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0383" id="0383" class="graf graf--h3 graf--leading graf--title">Althea Development Update #52: Asking the right questions about performance</h3><p name="6aa9" id="6aa9" class="graf graf--p graf-after--h3">Here’s our <a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.3" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.3" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Alpha 6 release</a></p><p name="229c" id="229c" class="graf graf--p graf-after--p">We’re attending and presenting at <a href="https://ournetworks.ca/" data-href="https://ournetworks.ca/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">SOON</a> in Toronto this weekend, so keep an eye on the IPFS powered <a href="https://ournetworks.ca/livestream/" data-href="https://ournetworks.ca/livestream/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">livestream</a></p><h4 name="2663" id="2663" class="graf graf--h4 graf-after--p"><strong class="markup--strong markup--h4-strong">What’s new in Alpha 6</strong></h4><ul class="postList"><li name="5f75" id="5f75" class="graf graf--li graf-after--h4">DNS servers have been moved to more stable defaults after a <a href="https://medium.com/althea-mesh/outage-report-poisoned-dns-responses-bfc71f3d838c" data-href="https://medium.com/althea-mesh/outage-report-poisoned-dns-responses-bfc71f3d838c" class="markup--anchor markup--li-anchor" target="_blank">recent incident</a></li><li name="9524" id="9524" class="graf graf--li graf-after--li">Meshing over device WiFi is now a runtime toggle instead of a firmware compile time option</li><li name="ff19" id="ff19" class="graf graf--li graf-after--li">Dashboard API endpoints are now automatically tested and should generally be more reliable</li><li name="2325" id="2325" class="graf graf--li graf-after--li">Moved to the system allocator for rust Stable builds</li></ul><p name="c6f3" id="c6f3" class="graf graf--p graf-after--li graf--trailing">The exit signup refactor slipped again and will be the first thing merged for this upcoming window. With that come a host of what turned out to be necessary improvements to peer discovery, tunnel management, and quality of life features.</p></div></div></section><section name="df02" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="22b4" id="22b4" class="graf graf--h4 graf--leading">Now Hiring!</h4><p name="fc86" id="fc86" class="graf graf--p graf-after--h4 graf--trailing">We have raised a funding round and are now hiring remote developers. See the application <a href="https://medium.com/althea-mesh/join-althea-5f040cb79fc1" data-href="https://medium.com/althea-mesh/join-althea-5f040cb79fc1" class="markup--anchor markup--p-anchor" target="_blank">here</a>. We’re a fully remote team and we will happily hire wherever the talent is. We are also pretty flexible about pay, so generally expect a little above the average for your region.</p></div></div></section><section name="8060" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="28af" id="28af" class="graf graf--h4 graf--leading">In which detailed data confirms the obvious</h4><blockquote name="d3d4" id="d3d4" class="graf graf--blockquote graf-after--h4">If it becomes clear that the Zyxel is a part of a larger pattern of substandard performance rather than the exception I’ll start digging into kernel performance profiling and really get to the bottom of the issue.</blockquote><p name="e4dc" id="e4dc" class="graf graf--p graf-after--blockquote">Good news is that <a href="https://www.gl-inet.com/products/gl-b1300/" data-href="https://www.gl-inet.com/products/gl-b1300/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">GL-B1300</a> has a good enough price/performance to become our new go-to midrange pick. Bad news is that’s 100mbps throughput, at least 3x less than what I had estimated the device to be capable of.</p><p name="31c0" id="31c0" class="graf graf--p graf-after--p">True to my word, I dug into the performance at the kernel level on both the WD MyNet n600 and the GL-B1300, trying to get to the bottom of our performance woes.</p><p name="5d28" id="5d28" class="graf graf--p graf-after--p">First off thanks to Brendan Gregg for the wonderful pearl script that converts data from the Linux perf tool into easily readable <a href="http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html" data-href="http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Flame Graphs</a>. For those of you not familiar this graph represents a call stack, going up the deeper ‘down’ the callstack you go. Length is a relative measure of how much cpu time was spent in a given function.</p><p name="a368" id="a368" class="graf graf--p graf-after--p">The below graphs where captured over 100 second intervals during an iperf UDP test from kworker threads using a kernel compiled with as identical as possible flags.</p><p name="93ef" id="93ef" class="graf graf--p graf-after--p">The n600 is a pretty old device, it runs a 560mhz AR9344 MIPS core right out of 2011. Variants of this core are popular into even modern routers. Tested speed with Althea is ~25mbps.</p><p name="27ff" id="27ff" class="graf graf--p graf-after--p">The GL-B1300 is a brand new quad core 717mhz ARM chip Atheros IPQ4028. Tested speed with Althea is ~100mbps.</p><p name="16a1" id="16a1" class="graf graf--p graf-after--p">Considering the process and architecture improvements between these two processors we should be seeing a lot more than a 4x improvement. The latter processor is easily a dozen times more powerful.</p><p name="5e5b" id="5e5b" class="graf graf--p graf-after--p">The reason we’re focusing on processing power is that in our design with Althea we actually nest two WireGuard tunnels. One to provide security for your traffic as it traverses out to the internet, the other exists between every hop. A very important part of being able to bill for traffic is being able to identify who is responsible for paying for that traffic.</p><p name="0c2c" id="0c2c" class="graf graf--p graf-after--p">Since each hop pays the hop adjacent to it in our system WireGuard is actually the most expedient way to authenticate traffic is actually from the peer who will be billed. In theory we could improve efficiency by removing the chacha20 encryption and only using the poly1305 authentication.</p><p name="419f" id="419f" class="graf graf--p graf-after--p">This is even something we seriously discussed as it became clear even modern devices where not performing to expectations. But I decided to do some more investigating before going down that route.</p><p name="2608" id="2608" class="graf graf--p graf-after--p">In the graph for the n600 CPU time dominated by WireGuard tasks. So much so that the iptables and routing rules remain thin little licks of ‘flame’.</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="4913" id="4913" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 1000px; max-height: 405px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 40.5%;"></div><img class="graf-image" data-image-id="1*A02uY8VORZ_yVodWuwBpIQ.png" data-width="1200" data-height="486" src="https://cdn-images-1.medium.com/max/1000/1*A02uY8VORZ_yVodWuwBpIQ.png"></div><figcaption class="imageCaption">Kernel worker thread sample for the n600</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="36bf" id="36bf" class="graf graf--p graf-after--figure">But the picture painted by the B1300 is very different. The previously flame thin iptables stacks now make up nearly the entire graph. Packet decryption is relegated to this little corner on the left and an even smaller one about a fourth of the way over. Where you can barely see a chacha20_neon function.</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="65ac" id="65ac" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 1000px; max-height: 378px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 37.8%;"></div><img class="graf-image" data-image-id="1*I522E77bkuqt-iu399VFkg.png" data-width="1200" data-height="454" src="https://cdn-images-1.medium.com/max/1000/1*I522E77bkuqt-iu399VFkg.png"></div><figcaption class="imageCaption">Kernel worker thread sample for the GL-B1300</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="405e" id="405e" class="graf graf--p graf-after--figure">What we’re seeing is <a href="https://git.zx2c4.com/WireGuard/tree/src/crypto/chacha20-arm.S" data-href="https://git.zx2c4.com/WireGuard/tree/src/crypto/chacha20-arm.S" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">WireGuard’s optimized ARM assembly implementation</a> paying off. It’s not so much that iptables tasks are larger on the B1300 as WireGuard tasks are massively smaller.</p><p name="e39f" id="e39f" class="graf graf--p graf-after--p">The similarly optimized MIPS implementation does impressive work for such an old processor. But exactly as expected the newer device blows it out of the water.</p><p name="3cdb" id="3cdb" class="graf graf--p graf-after--p">So then why is it only 4x faster?</p><p name="1732" id="1732" class="graf graf--p graf-after--p">The answer is packet forwarding hardware acceleration. While the n600 achieves it’s sticker 100mbps running stock OpenWRT most modern routers need special drivers to reach their sticker performance.</p><p name="e75b" id="e75b" class="graf graf--p graf-after--p">Testing the B1300 with stock OpenWRT reveals it gets…. about 100mbps throughput without WireGuard. The CPU is easily powerful enough to perform the WireGuard operations, exactly as I estimated.</p><p name="1d4c" id="1d4c" class="graf graf--p graf-after--p graf--trailing">To be honest I also suspected packet acceleration issues before I began, but it’s good to have rock solid confirmation.</p></div></div></section><section name="b265" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="1850" id="1850" class="graf graf--p graf--leading">The conclusions we can draw here are that on modern devices Althea’s encryption/authentication stack is efficient enough to not be a problem. Instead we should focus our performance efforts on FOSS drivers for more common packet accelerators.</p><p name="1b20" id="1b20" class="graf graf--p graf-after--p graf--trailing">Fortunately such drivers already exist and are floating around <a href="https://forum.lede-project.org/t/qualcomm-fast-path-for-lede/4582/447" data-href="https://forum.lede-project.org/t/qualcomm-fast-path-for-lede/4582/447" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">in the depths of the forums</a>. Waiting to be upstreamed, or if that fails applied as local patches to our router firmware.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/performance" class="p-tag">Performance</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a>, <a href="https://medium.com/tag/encryption" class="p-tag">Encryption</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/c3de68f3eb49"><time class="dt-published" datetime="2018-07-14T11:50:21.730Z">July 14, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-52-asking-the-right-questions-about-performance-c3de68f3eb49" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

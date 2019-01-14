@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #44: Picking up steam</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #44: Picking up steam</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Althea now has 4 full time users with more in the immediate pipeline and longer term plans shaping up.
+</section>
+<section data-field="body" class="e-content">
+<section name="71ca" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="423e" id="423e" class="graf graf--h3 graf--leading graf--title">Althea Development Update #44: Picking up steam</h3><p name="1fcc" id="1fcc" class="graf graf--p graf-after--h3">Althea now has 4 full time users with more in the immediate pipeline and longer term plans shaping up.</p><p name="87ac" id="87ac" class="graf graf--p graf-after--p">Two are using CPE’s as pictured below for long distance links, of a few yards to a mile. The other two are connected using the 5ghz wifi in the routers themselves, which is performing flawlessly over short distances with only 3 peers.</p><p name="0555" id="0555" class="graf graf--p graf-after--p">These are representative of our two major use cases, high density housing where short distance ‘pure mesh’ is possible and long distance communication using specialized hardware. In an apartment complex for example a home router would be able to resell to adjacent units above and below. Then specialized hardware would be used to reach beyond that.</p><p name="df68" id="df68" class="graf graf--p graf-after--p graf--trailing">The key leverage of mesh technology in Althea is not to create a network without infrastructure, but to create one out of any infrastructure available automatically.</p></div></div></section><section name="c176" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="9627" id="9627" class="graf graf--p graf--leading">Keeping up with the influx of new interest is really cutting into development time for me. It’s fortunate we already have one employee up to speed, but as the resident cross compiling and tooling expert our on router tooling and specifically process improvements for new deployments are a high priority for me.</p><p name="15b8" id="15b8" class="graf graf--p graf-after--p">The faster I can start posting ready-to-use firmware files on our website the quicker users can move to flashing their own routers without my intervention. Which is currently required not because there isn’t automation, but because that automation is too environmentally delicate for a non-expert to setup.</p><p name="0d39" id="0d39" class="graf graf--p graf-after--p">The router software now has auto setup features to fix this. So it’s a matter of getting it properly integrated into the firmware and our production tooling. We also have the first iteration of our billing software code complete, so it’s undergoing integration testing with the auto setup software.</p><figure name="c717" id="c717" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 394px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 75%;"></div><img class="graf-image" data-image-id="1*rUrRYpPYjqqZCwPJV2xJHg.jpeg" data-width="1336" data-height="1002" src="https://cdn-images-1.medium.com/max/600/1*rUrRYpPYjqqZCwPJV2xJHg.jpeg"></div><figcaption class="imageCaption">A customer antenna about a mile from Deborah’s shop</figcaption></figure><p name="4f60" id="4f60" class="graf graf--p graf-after--figure">One of the big challenges is updating core network software on remote devices in such a way that they will come back online and remain compatible with the rest of the mesh. Since a split-version mesh without interoperability will isolate devices that need the mesh to download the update.</p><p name="f833" id="f833" class="graf graf--p graf-after--p">These catch-22’s require manual human intervention, so we’re going to take even this first update cycle pretty carefully.</p><p name="4b91" id="4b91" class="graf graf--p graf-after--p graf--trailing">It feels good to be making steady progress. Especially since we keep seeing our engineering decisions pay off.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/tech" class="p-tag">Tech</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/36b9e3440771"><time class="dt-published" datetime="2018-03-15T23:40:16.204Z">March 15, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-44-picking-up-steam-36b9e3440771" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

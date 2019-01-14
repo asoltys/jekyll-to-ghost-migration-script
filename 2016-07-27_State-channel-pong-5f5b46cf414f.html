@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>State channel pong</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">State channel pong</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+This is a quick writeup of some ideas that were discussed by myself, Ameen Soleimani, and Zaki Manian.
+</section>
+<section data-field="body" class="e-content">
+<section name="4807" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2293" id="2293" class="graf graf--h3 graf--leading graf--title">State channel pong</h3><p name="bdf0" id="bdf0" class="graf graf--p graf-after--h3">This is a quick writeup of some ideas that were discussed by myself, Ameen Soleimani, and Zaki Manian.</p><p name="2ef2" id="2ef2" class="graf graf--p graf-after--p">Ameen is actively researching state channels and was looking for project ideas. I suggested pong, as it is a very fast paced game that really emphasizes the scalability and speed of state channels. Playing pong on a state channel is somehow much more impressive than tic tac toe or chess. Thinking about state channels in terms of pong also loosened up my thinking around channels in general. We talked with Zaki for about an hour to find a good way to do it.</p><p name="fddd" id="fddd" class="graf graf--p graf-after--p">Alice and Bob send frames back and forth, both signing each valid frame. For example:</p><pre name="11c1" id="11c1" class="graf graf--pre graf-after--p"><code class="markup--code markup--pre-code">Alice -&gt; Bob<br>Frame:<br>    Sequence: 88<br>    Ball: 11,23<br>    Alice&#39;s paddle: 15<br>    Bob&#39;s paddle: 3<br><br>Bob -&gt; Alice<br>Frame:<br>    Sequence: 89 // Bump the sequence number<br>    Ball: 12,24 // The ball has moved according to pong &quot;physics&quot;<br>    Alice&#39;s paddle: 15<br>    Bob&#39;s paddle: 4 // Bob has moved his paddle</code></pre><p name="eed5" id="eed5" class="graf graf--p graf-after--pre">Alice will sign the frame that Bob has given her if it is valid, i.e. if the sequence number is correctly incremented and if the ball has obeyed the laws of pong physics. The frame also contains an update of Bob’s paddle position.</p><p name="f129" id="f129" class="graf graf--p graf-after--p">They set up a contract on the blockchain that also understands the state transition from one frame to another. If given a frame signed by both Alice and Bob, the contract can of course establish that it is valid. The contract can also establish that a frame signed by only one of the participants is valid, given the frame before it signed by both. Also, as is the norm in state channels, frames with a higher sequence number override those with a lower sequence number. There is a challenge period of some length as well. After a frame is submitted, the contract waits for this amount of time before taking action on it (i.e. paying out some money to the winner).</p><p name="7b99" id="7b99" class="graf graf--p graf-after--p">In addition to frames, the contract accepts a notice of forfeit, signed by only one of the participants. For instance, Alice can claim “Bob forfeited”. This can be overriden by a frame of any sequence number. If Bob does not post any valid frames during the challenge period, he forfeits the game.</p><p name="4e55" id="4e55" class="graf graf--p graf-after--p">Let’s say that Bob sees that Alice is about to win, and he would like to end the game without forfeiting the money that he has locked up in the contract as a bet or whatever. I will prove that it is not possible for Bob to do this.</p><p name="0c2c" id="0c2c" class="graf graf--p graf-after--p">If Bob simply disconnects and stops signing frames, Alice can send a notice of forfeiture to the contract. If Bob doesn’t send a valid frame before the hold period is up, Alice gets the money.</p><p name="d409" id="d409" class="graf graf--p graf-after--p">If Bob does send a valid frame, it’s now up to Alice to send the next frame before the challenge period is over, otherwise she has forfeited. Alice and Bob could go back and forth like this until the end of the game, but this would be a very slow game, and very expensive because they would have to pay gas each time they submitted a frame.</p><p name="35ec" id="35ec" class="graf graf--p graf-after--p graf--trailing">It’s in both of their interests to play honestly and keep all frames except for the last one off the chain, but the slow and inefficient frame-by-frame process is always there as a fallback to keep the players honest.</p></div></div></section><section name="847e" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="7f54" id="7f54" class="graf graf--p graf--leading graf--trailing"><em class="markup--em markup--p-em">Originally published at </em><a href="http://altheamesh.com/blog/state-channel-pong/" data-href="http://altheamesh.com/blog/state-channel-pong/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em class="markup--em markup--p-em">altheamesh.com</em></a><em class="markup--em markup--p-em">.</em></p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a>, <a href="https://medium.com/tag/state-channels" class="p-tag">State Channels</a>, <a href="https://medium.com/tag/payment-channels" class="p-tag">Payment Channels</a>, <a href="https://medium.com/tag/lightning-network" class="p-tag">Lightning Network</a>, <a href="https://medium.com/tag/cryptocurrency" class="p-tag">Cryptocurrency</a></p><p>By <a href="https://medium.com/@jtremback" class="p-author h-card">Jehan </a> on <a href="https://medium.com/p/5f5b46cf414f"><time class="dt-published" datetime="2016-07-27T07:00:00.000Z">July 27, 2016</time></a>.</p><p><a href="https://medium.com/@jtremback/state-channel-pong-5f5b46cf414f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

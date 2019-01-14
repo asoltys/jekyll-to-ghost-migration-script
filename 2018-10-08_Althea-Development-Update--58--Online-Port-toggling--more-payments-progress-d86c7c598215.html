@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #58: Online Port toggling, more payments progress</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #58: Online Port toggling, more payments progress</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Deborah and Jehan spent last week in Medellin Colombia helping to setup an Althea network there. You should read Deborah’s blog post about…
+</section>
+<section data-field="body" class="e-content">
+<section name="52c6" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="841a" id="841a" class="graf graf--h3 graf--leading graf--title">Althea Development Update #58: Online Port toggling, more payments progress</h3><figure name="ba63" id="ba63" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 457px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 65.4%;"></div><img class="graf-image" data-image-id="1*HRaHTw4Tur73ipoaiQu_mQ.jpeg" data-width="2999" data-height="1960" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*HRaHTw4Tur73ipoaiQu_mQ.jpeg"></div><figcaption class="imageCaption">View from an antenna mount point down into Medellin</figcaption></figure><p name="b846" id="b846" class="graf graf--p graf-after--figure">Deborah and Jehan spent last week in Medellin Colombia helping to setup an Althea network there. You should read <a href="https://medium.com/althea-mesh/althea-in-medellin-c39f1416913e" data-href="https://medium.com/althea-mesh/althea-in-medellin-c39f1416913e" class="markup--anchor markup--p-anchor" target="_blank">Deborah’s blog post</a> about it!</p><p name="4256" id="4256" class="graf graf--p graf-after--p">As I talked about in the last update we’re trying to move quickly on payments by getting the network DAO payments onto prodnet (real money) and bandwidth payments on to testnet (fake money) this month.</p><p name="6e58" id="6e58" class="graf graf--p graf-after--p">Both of these are somewhat aggressive but possible.</p><p name="acd5" id="acd5" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Network DAO payments</strong></p><ol class="postList"><li name="a483" id="a483" class="graf graf--li graf-after--p">Deploy Aragon OS</li><li name="f63e" id="f63e" class="graf graf--li graf-after--li">Deploy Aragon OS apps</li><li name="570b" id="570b" class="graf graf--li graf-after--li">Deploy Network DAO factory &lt; = we are here</li><li name="4135" id="4135" class="graf graf--li graf-after--li">Network DAO factory can be called to deploy a new Aragon DAO with the Althea DAO app preinstalled.</li></ol><p name="3d93" id="3d93" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Bandwidth Payments</strong></p><ol class="postList"><li name="326f" id="326f" class="graf graf--li graf-after--p">Create light client that works on routers and embedded devices.</li><li name="30aa" id="30aa" class="graf graf--li graf-after--li">Create a bidirectional payment channel and deploy it.</li><li name="bf2d" id="bf2d" class="graf graf--li graf-after--li">Integrate the light client and existing billing code.</li><li name="e35c" id="e35c" class="graf graf--li graf-after--li">Integrate the #3 with the payment channel. &lt; = we are here</li><li name="8ce7" id="8ce7" class="graf graf--li graf-after--li">Integrate billing code with existing accounting code.</li><li name="19c6" id="19c6" class="graf graf--li graf-after--li graf--trailing">Comprehensively test this entire stack.</li></ol></div></div></section><section name="bda1" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="ab86" id="ab86" class="graf graf--h4 graf--leading">What’s new in Alpha 10</h4><ul class="postList"><li name="bbb0" id="bbb0" class="graf graf--li graf-after--h4">Port toggling: The ability to switch port functions dynamically, allowing users to customize their device functions more easily.</li><li name="0268" id="0268" class="graf graf--li graf-after--li">Interface internationalization, you can now select Spanish for the Althea router interface!</li><li name="f949" id="f949" class="graf graf--li graf-after--li">Remote logging, there’s now an endpoint users can hit to send us router logs if they encounter an error in the field. We hope to put a button on the dashboard for this in the next release. It is of course totally disabled by default.</li><li name="7b97" id="7b97" class="graf graf--li graf-after--li">Bugfixes: very specific billing edge-cases can no longer crash routers</li></ul><p name="0035" id="0035" class="graf graf--p graf-after--li">Not many cool new features this release, with most of our effort focused on getting our various money making features actually working. It’s an experience not dissimilar to making nesting dolls I imagine. Everything depends on everything else up and down the stack.</p><p name="4d65" id="4d65" class="graf graf--p graf-after--p graf--trailing">With working networking and updates we can work on deploying new networks in parallel with billing. The hard part is the balancing act of making sure our reach does not exceed our grasp and getting billing filled in to support these networks before the financial burden becomes troublesome.</p></div></div></section><section name="36df" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="0681" id="0681" class="graf graf--h4 graf--leading">Thoughts on routers and pricing</h4><p name="1b52" id="1b52" class="graf graf--p graf-after--h4">As of about a week ago it’s possible to easily buy <a href="https://althea-routers.myshopify.com/" data-href="https://althea-routers.myshopify.com/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">preflashed routers</a> and other networking equipment from us. There is also a hopefully complete set of documentation on how to connect to other nodes and <a href="https://forum.altheamesh.com/t/connecting-your-althea-router-to-the-network/160" data-href="https://forum.altheamesh.com/t/connecting-your-althea-router-to-the-network/160" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">setup your router</a>.</p><p name="c3dc" id="c3dc" class="graf graf--p graf-after--p">You’ll probably notice we’re not selling the cheapest option on our <a href="https://github.com/althea-mesh/althea-firmware#supported-device-targets" data-href="https://github.com/althea-mesh/althea-firmware#supported-device-targets" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">supported routers</a> lineup. You can generally go as low as $20 for a working device, but we’ve found that ~$100 is where you stop getting a better router for your money.</p><p name="9d61" id="9d61" class="graf graf--p graf-after--p">After testing dozens of routers most of the $150 — $300 routers you find at Best Buy are generally no better than the $100 option if you know what to look for.</p><p name="4ee0" id="4ee0" class="graf graf--p graf-after--p">There’s a reason why the Best Buy options are so expensive of course, having a higher priced options attracts people to the ‘middle’ of the price curve. Those shiny $300 routers are designed to justify in your mind the $150-$200 routers.</p><p name="625b" id="625b" class="graf graf--p graf-after--p">We experience this same issue putting up a $100 router next to a $25 one, except in our case we’ve made sure the $100 router is really 4x better (it’s actually 5x better according to my testing).</p><p name="7985" id="7985" class="graf graf--p graf-after--p graf--trailing">I suppose we could throw in a $300 router that’s not actually 3x better than a $100 router. But I find that hard to justify, so for the time being we’re going to try and steer first world buyers to the GL B1300.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/tech" class="p-tag">Tech</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/net-neutrality" class="p-tag">Net Neutrality</a>, <a href="https://medium.com/tag/internet" class="p-tag">Internet</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/d86c7c598215"><time class="dt-published" datetime="2018-10-08T14:49:04.352Z">October 8, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-58-online-port-toggling-more-payments-progress-d86c7c598215" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

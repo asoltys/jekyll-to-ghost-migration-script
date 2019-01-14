@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #40: proc_macro and the language tradeoff</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #40: proc_macro and the language tradeoff</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I post bi-weekly development updates for Althea, in the past I’ve done this on Reddit but with development ramping up I’ve decided to move…
+</section>
+<section data-field="body" class="e-content">
+<section name="85cf" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="546b" id="546b" class="graf graf--h3 graf--leading graf--title">Althea Development Update #40: proc_macro and the language tradeoff</h3><p name="bc43" id="bc43" class="graf graf--p graf-after--h3 graf--trailing">I post bi-weekly development updates for Althea, in the past I’ve done this on <a href="http://reddit.com/r/altheamesh" data-href="http://reddit.com/r/altheamesh" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Reddit</a> but with development ramping up I’ve decided to move them here.</p></div></div></section><section name="1e9b" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="903d" id="903d" class="graf graf--p graf--leading"><strong class="markup--strong markup--p-strong">Alpha Deployment Status</strong></p><p name="431e" id="431e" class="graf graf--p graf-after--p">In our <a href="https://www.reddit.com/r/altheamesh/comments/7ni0fb/development_update_39_putting_together_a_mvp/" data-href="https://www.reddit.com/r/altheamesh/comments/7ni0fb/development_update_39_putting_together_a_mvp/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">last update</a> we hoped to have the minimum viable firmware done to roll out to our Alpha users. Not quite there yet I’m afraid, we spent a lot of the last two weeks trying to raise a seed round and it was exhausting beyond words, although coming to an end now. Our partners in Clatskanie are similarly delayed with network hardware setup by a cavalcade of personal mishaps and bad weather. Overall progress continues and we don’t expect to be too far delayed, we may still hit the end of the month.</p><figure name="af6f" id="af6f" class="graf graf--figure graf-after--p graf--trailing"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 525px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 75%;"></div><img class="graf-image" data-image-id="1*pAzrL1auOfO7BhhhHBHoRg.png" data-width="800" data-height="600" src="https://cdn-images-1.medium.com/max/800/1*pAzrL1auOfO7BhhhHBHoRg.png"></div><figcaption class="imageCaption">Shaun Ripplinger of Cascadian MeshNet, constructing a scissor lift tower.</figcaption></figure></div></div></section><section name="dc26" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="9258" id="9258" class="graf graf--p graf--leading"><strong class="markup--strong markup--p-strong">proc_macro woes</strong></p><p name="dd05" id="dd05" class="graf graf--p graf-after--p">Althea selected Rust as it’s major implementation language several months ago after a lot of discussion. Other modern languages such as GO, Python, or Javascript would all consume too much memory and disk space pretty rapidly. Especially if we developed by pulling in lots of libraries.</p><p name="423c" id="423c" class="graf graf--p graf-after--p">C and C++ would be both more performant and small enough but lacked modern safety features. There are developers who can write great cryptography and blockchain applications without these safety properties through heroic effort and care. But we would prefer to avoid the risk.</p><p name="db6f" id="db6f" class="graf graf--p graf-after--p">In comes Rust, a modern compiled language that promises the best of both worlds. The safety of a modern language but the speed and size of C/C++ even when using large libraries.</p><p name="08d8" id="08d8" class="graf graf--p graf-after--p">Well obviously I’m talking about problems, so what went wrong?</p><p name="2e11" id="2e11" class="graf graf--p graf-after--p">proc_macro is a very cool part of the Rust language, it allows compile time syntactic sugar to be turned into static and efficient compiled code.</p><pre name="aa76" id="aa76" class="graf graf--pre graf-after--p">#[derive(Serialize, Deserialize, Debug)]<br>struct Point {<br>    x: i32,<br>    y: i32,<br>}</pre><p name="e0c1" id="e0c1" class="graf graf--p graf-after--pre">It’s great when it works, which is all the time on desktop. Sadly for OpenWRT targets we’re getting that new language smell.</p><div name="76b5" id="76b5" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/rust-lang/rust/issues/40174" data-href="https://github.com/rust-lang/rust/issues/40174" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/rust-lang/rust/issues/40174"><strong class="markup--strong markup--mixtapeEmbed-strong">Unable to find crate `proc_macro` on musl target · Issue #40174 · rust-lang/rust</strong><br><em class="markup--em markup--mixtapeEmbed-em">Using procedural derive macros on musl seems to work just fine for the most of the cases, but there is one pitfall; in…</em>github.com</a><a href="https://github.com/rust-lang/rust/issues/40174" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f01e4fce495d0c6733485a73d9300aa8" data-thumbnail-img-id="0*w_q88PbfrUq05pc6." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*w_q88PbfrUq05pc6.);"></a></div><p name="155d" id="155d" class="graf graf--p graf-after--mixtapeEmbed">Use of proc_macro is very pervasive because it’s just so darn convenient and great. Working low level magic with almost no developer effort. After evaluating our options we’ve decided to make a serious attempt at fixing this in Rust upstream.</p><p name="067b" id="067b" class="graf graf--p graf-after--p">If that fails we can always just avoid using code that triggers this issue. But it would be really great to live the dream of no compromises embedded development. Even if we have to do some work to get there.</p><p name="15af" id="15af" class="graf graf--p graf-after--p graf--trailing">Big thanks to contributor <a href="https://github.com/drozdziak1" data-href="https://github.com/drozdziak1" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">drozdziak1</a> for doing a lot of the investigative work here.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/wireless-router" class="p-tag">Wireless Router</a>, <a href="https://medium.com/tag/openwrt" class="p-tag">Openwrt</a>, <a href="https://medium.com/tag/linux" class="p-tag">Linux</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/6f45851a82f4"><time class="dt-published" datetime="2018-01-14T22:02:56.247Z">January 14, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-40-proc-macro-and-the-language-tradeoff-6f45851a82f4" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

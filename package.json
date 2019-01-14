@@ -2,8 +2,10 @@
   "dependencies": {
     "@tryghost/html-to-mobiledoc": "^0.2.1",
     "bson-objectid": "^1.2.4",
+    "cheerio": "^1.0.0-rc.2",
     "just-kebab-case": "^1.1.0",
     "markdown": "^0.5.0",
+    "node-html-parser": "^1.1.11",
     "uuid": "^3.3.2"
   }
 }

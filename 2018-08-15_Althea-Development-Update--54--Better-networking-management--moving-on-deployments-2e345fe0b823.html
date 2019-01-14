@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #54: Better networking management, moving on deployments</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #54: Better networking management, moving on deployments</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+What’s new in Alpha 8
+</section>
+<section data-field="body" class="e-content">
+<section name="8b3d" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5190" id="5190" class="graf graf--h3 graf--leading graf--title">Althea Development Update #54: Better networking management, moving on deployments</h3><figure name="4611" id="4611" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 340px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 48.6%;"></div><img class="graf-image" data-image-id="1*VJTpdJpBOkdT1UKyoUWE9A.jpeg" data-width="2016" data-height="980" src="https://cdn-images-1.medium.com/max/800/1*VJTpdJpBOkdT1UKyoUWE9A.jpeg"></div></figure><h4 name="734d" id="734d" class="graf graf--h4 graf-after--figure"><a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.4" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.4" class="markup--anchor markup--h4-anchor" rel="noopener" target="_blank">What’s new in Alpha 8</a></h4><ul class="postList"><li name="859b" id="859b" class="graf graf--li graf-after--h4">Improved peer discovery works off the same method as Babel to be less disruptive to surrounding network environments and more efficient.</li><li name="2f8e" id="2f8e" class="graf graf--li graf-after--li">Improved tunnel management now handles every case where a connection may fail to open or be maintained.</li><li name="0325" id="0325" class="graf graf--li graf-after--li">Exit signup improvements, users have to manually sign up for an exit now, but we can reasonably scale without losing Netflix access.</li><li name="930d" id="930d" class="graf graf--li graf-after--li">Lots of usability improvements in the dashboard, including connectivity indicators and loading bars on the right parts of the signup process.</li><li name="6bce" id="6bce" class="graf graf--li graf-after--li">x86_64 as an OpenWRT platform, make a big router out of an old desktop!</li></ul><p name="2e25" id="2e25" class="graf graf--p graf-after--li">Get it <a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.4" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.4" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">here</a></p><h4 name="3920" id="3920" class="graf graf--h4 graf-after--p">Alpha 8 is backwards incompatible!</h4><p name="59f2" id="59f2" class="graf graf--p graf-after--h4">If you already have a device please update it, or it will stop working. We don’t normally do breaking releases but it was needed for some of these changes.</p><figure name="10bf" id="10bf" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 279px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 53.2%;"></div><img class="graf-image" data-image-id="1*Qd79Lp_8c_MhCjWFPSOSSg.png" data-width="3834" data-height="2041" src="https://cdn-images-1.medium.com/max/600/1*Qd79Lp_8c_MhCjWFPSOSSg.png"></div><figcaption class="imageCaption">The new dashboard, notice it now tells you if the exit is alive</figcaption></figure><p name="ba5a" id="ba5a" class="graf graf--p graf-after--figure">I’m especially excited about this release because it’s finally resolving a lot of the issues that have been keeping us from expanding more aggressively in deployments.</p><p name="138c" id="138c" class="graf graf--p graf-after--p">Generally the old peer discovery code was pretty high-touch and sometimes required a couple of reboots before it really behaved. In Alpha 8 that’s all but eliminated, as is the tendency to anger older networking equipment with an aggressive peer discovery strategy.</p><p name="6057" id="6057" class="graf graf--p graf-after--p graf--trailing">We’re also on stable releases of Rust and OpenWRT for the first time, as the stars aligned to put all the features and device support we need into the stable branches of each project at about the same time.</p></div></div></section><section name="f007" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="c4bf" id="c4bf" class="graf graf--p graf--leading">In deployments news several of our networks, including Seattle and in Columbia South America are getting their first equipment up soon. Which has in turn driven our push for stable networking in this release.</p><p name="3b27" id="3b27" class="graf graf--p graf-after--p">We’ve also been testing out some cool new equipment particularly MikroTik’s ‘wireless wire’, a line of 60ghz radios with integrated directional antennas that come preconfigured as an L2 bridge out of the box. They are surprisingly easy to setup and perform quite well.</p><figure name="b07a" id="b07a" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 341px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 48.699999999999996%;"></div><img class="graf-image" data-image-id="1*zQkr1WLASIuzKp912HKs5Q.jpeg" data-width="1200" data-height="584" src="https://cdn-images-1.medium.com/max/800/1*zQkr1WLASIuzKp912HKs5Q.jpeg"></div></figure><p name="fd8d" id="fd8d" class="graf graf--p graf-after--figure graf--trailing">While these aren’t as flexible as many other products the 60ghz frequency essentially makes them immune to the interference issues you get on the normal wifi range and provides very high speeds (full gigabit) over their 200m range. For a variety of situations I could see these becoming our go to recommendation.</p></div></div></section><section name="1cdf" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="e48a" id="e48a" class="graf graf--p graf--leading graf--trailing">I’m hoping that this is the second to last Alpha release, we’ve got one or two more hurdles before payments stuff is ready to be mainlined. After that we’re technically in Beta as we would be unstable but feature complete.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/tech" class="p-tag">Tech</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/2e345fe0b823"><time class="dt-published" datetime="2018-08-15T12:02:36.866Z">August 15, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-54-better-networking-management-moving-on-deployments-2e345fe0b823" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

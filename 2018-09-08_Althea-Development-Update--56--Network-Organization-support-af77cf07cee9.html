@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #56: Network Organization support</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #56: Network Organization support</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Update Summary
+</section>
+<section data-field="body" class="e-content">
+<section name="a0e5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a722" id="a722" class="graf graf--h3 graf--leading graf--title">Althea Development Update #56: Network Organization support</h3><h4 name="7033" id="7033" class="graf graf--h4 graf-after--h3 graf--subtitle">Update Summary</h4><p name="42d7" id="42d7" class="graf graf--p graf-after--h4">Several new networks getting started (about 5) some made videos of their setups <a href="https://www.youtube.com/watch?v=MiFWjLk3NnY&amp;feature=youtu.be" data-href="https://www.youtube.com/watch?v=MiFWjLk3NnY&amp;feature=youtu.be" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">one</a>, <a href="https://www.youtube.com/watch?v=7wu_HP_aq5Y" data-href="https://www.youtube.com/watch?v=7wu_HP_aq5Y" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">two</a>.</p><p name="e712" id="e712" class="graf graf--p graf-after--p">With network features now generally stable a lot of people are getting online and using Althea. Likewise development has shifted gears from putting out fires to cranking out actual blockchain/payment features.</p><p name="fab1" id="fab1" class="graf graf--p graf-after--p">In parallel we are working on documentation and additional polish to provide easier access for people who want to try Althea now that it is approaching stability.</p><h4 name="1d8b" id="1d8b" class="graf graf--h4 graf-after--p"><a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.5" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.5" class="markup--anchor markup--h4-anchor" rel="noopener" target="_blank">What’s New in Alpha 9</a></h4><ul class="postList"><li name="bbb0" id="bbb0" class="graf graf--li graf-after--h4">Local network enforcement with early DAO contract</li><li name="66a4" id="66a4" class="graf graf--li graf-after--li">Checks to wifi password and name to prevent accidental breakage</li><li name="726d" id="726d" class="graf graf--li graf-after--li">Added api to view neighbours debts</li><li name="cc47" id="cc47" class="graf graf--li graf-after--li">Update lots of dependencies</li><li name="bb5b" id="bb5b" class="graf graf--li graf-after--li">Cleanup of old tunnels</li><li name="2d9c" id="2d9c" class="graf graf--li graf-after--li">Dashboard interface refresh</li><li name="f0f8" id="f0f8" class="graf graf--li graf-after--li">Rasbperry PI targets!</li></ul><h4 name="c2c0" id="c2c0" class="graf graf--h4 graf-after--li">Network DAO</h4><p name="d18e" id="d18e" class="graf graf--p graf-after--h4">That’s right folks, after months of tinkering with networking to get things just right we finally have our first on-blockchain features in test.</p><p name="310e" id="310e" class="graf graf--p graf-after--p">As part of our <a href="https://medium.com/althea-mesh/the-althea-governance-model-232dbe20a71e" data-href="https://medium.com/althea-mesh/the-althea-governance-model-232dbe20a71e" class="markup--anchor markup--p-anchor" target="_blank">governance model</a> we’re creating <a href="https://aragon.org/" data-href="https://aragon.org/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Aragon</a> powered local network organizations.</p><p name="f158" id="f158" class="graf graf--p graf-after--p">Local communities can create an Aragon organization governed however they like. Althea devices then integrate with this organization to collect funds and manage the network.</p><p name="cce8" id="cce8" class="graf graf--p graf-after--p">How this will normally work is that a community can organize and insitute a governance structure and a membership fee, they can then in a decentralized way manage those proceeds to be used for improving the network or providing services to members.</p><figure name="bef4" id="bef4" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 321px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 45.9%;"></div><img class="graf-image" data-image-id="1*V4OPL-L7e0dD9JHSDL2PEA.png" data-width="3366" data-height="1544" src="https://cdn-images-1.medium.com/max/800/1*V4OPL-L7e0dD9JHSDL2PEA.png"></div><figcaption class="imageCaption">The Aragon app (before any design work)</figcaption></figure><p name="fbe4" id="fbe4" class="graf graf--p graf-after--figure">What we have right now is a pretty barebones selection screen and code on the routers that will query neighbors for membership on the local Network DAO once you turn it on.</p><figure name="f5b1" id="f5b1" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 229px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 32.7%;"></div><img class="graf-image" data-image-id="1*3xkNhzQysbnjUM_DiKig1g.png" data-width="759" data-height="248" src="https://cdn-images-1.medium.com/max/800/1*3xkNhzQysbnjUM_DiKig1g.png"></div><figcaption class="imageCaption">The DAO selection screen on a router</figcaption></figure><p name="a7b6" id="a7b6" class="graf graf--p graf-after--figure">We’re hoping to have payments and proper voting in the next few weeks.</p><h4 name="0aca" id="0aca" class="graf graf--h4 graf-after--p">Raspberry PI targets</h4><p name="755c" id="755c" class="graf graf--p graf-after--h4">As our most requested feature we now have Raspberry PI OpenWRT targets available on the releases and <a href="https://github.com/althea-mesh/althea-firmware" data-href="https://github.com/althea-mesh/althea-firmware" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">firmware</a> pages. For lack of extra ports the Ethernet jack is a meshing port and the wifi is used for LAN connections.</p><p name="8c7f" id="8c7f" class="graf graf--p graf-after--p">It’s not really useful for real world scenarios, there aren’t enough ports to resell connectivity easily and still be able to use it as a home device. But generally everyone has one lying around to play with so it’s an easy way to try things out.</p><h4 name="5009" id="5009" class="graf graf--h4 graf-after--p">Documentation</h4><p name="fb2a" id="fb2a" class="graf graf--p graf-after--h4">We’re hard at work on a refreshed website and updated documentation. Our landing page has become painfully out of date and now that the software is ready for people to seriously use it the difficulty of navigating and understanding what we’re trying to do with our current messaging is making itself more and more known.</p><p name="76f3" id="76f3" class="graf graf--p graf-after--p">I’m really happy with the designs we have so far and I think you will be too.</p><h4 name="181a" id="181a" class="graf graf--h4 graf-after--p">Conclusion</h4><p name="cd5d" id="cd5d" class="graf graf--p graf-after--h4 graf--trailing">In general I’m very impressed with the quality and speed of our progress since onboarding our new team members. At this rate we will easily achieve our goals before the end of the year and really get to see if Althea can scale to become a serious competitor to existing service providers.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/raspberry-pi" class="p-tag">Raspberry Pi</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/af77cf07cee9"><time class="dt-published" datetime="2018-09-08T14:21:18.033Z">September 8, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-56-network-organization-support-af77cf07cee9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

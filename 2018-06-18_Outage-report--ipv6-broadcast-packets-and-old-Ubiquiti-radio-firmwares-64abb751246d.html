@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Outage report: ipv6 broadcast packets and old Ubiquiti radio firmwares</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Outage report: ipv6 broadcast packets and old Ubiquiti radio firmwares</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+On the week of June 4th we rolled out the Alpha 3 software update to Althea devices. Shortly thereafter the Clatskani network went down.
+</section>
+<section data-field="body" class="e-content">
+<section name="6904" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="16f5" id="16f5" class="graf graf--h3 graf--leading graf--title">Outage report: ipv6 broadcast packets and old Ubiquiti radio firmwares</h3><p name="82b0" id="82b0" class="graf graf--p graf-after--h3">On the week of June 4th we rolled out the Alpha 3 software update to Althea devices. Shortly thereafter the Clatskani network went down.</p><p name="f02d" id="f02d" class="graf graf--p graf-after--p">After fixing other issues in the release it became apparent that radio performance had dramatically dropped. Performance tests on the patched Alpha 3 release showed that the performance drop was not due to the software but due to the underlying radio network that Clatskanie ran on.</p><p name="2cea" id="2cea" class="graf graf--p graf-after--p">Packet dumps showed that radios would receive a ipv6 ping to ff02::1 and respond as the <a href="https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml" data-href="https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">ipv6</a> specification demands, but in the process they would experience a large latency spike.</p><figure name="1968" id="1968" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 531px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 75.8%;"></div><img class="graf-image" data-image-id="1*SVD3eLqq3BgEF39qPaYDYQ.png" data-width="1919" data-height="1455" src="https://cdn-images-1.medium.com/max/800/1*SVD3eLqq3BgEF39qPaYDYQ.png"></div><figcaption class="imageCaption">Packet trace of user traffic</figcaption></figure><p name="53f0" id="53f0" class="graf graf--p graf-after--figure">Delivering out of order packets as well as adding 300ms of latency to a connection that nominally has 40ms of latency. This caused throughput to drop from ~20mbps to 1–4mbps on the same hardware and physical link.</p><p name="4c35" id="4c35" class="graf graf--p graf-after--p">This issue was resolved by updating the firmware on all of the Nanobeam CPE devices as well as the Rocket M5 sector antenna.</p><p name="7a46" id="7a46" class="graf graf--p graf-after--p graf--trailing">Pings to the ff02::1 address where new in the Alpha3 firmware and used for peer discovery. They could be eliminated by re-factoring the peer discovery protocol, we are investigating if these sorts of issues are common enough to be worth the trouble.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/ipv6" class="p-tag">Ipv6</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/64abb751246d"><time class="dt-published" datetime="2018-06-18T19:51:01.128Z">June 18, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/outage-report-ipv6-broadcast-packets-and-old-ubiquiti-radio-firmwares-64abb751246d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

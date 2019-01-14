@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #41: Proving out Rust and Network polish</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #41: Proving out Rust and Network polish</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Since our last update we’ve managed to solve our Rust cross compilation issues pretty handily. There’s some binary size optimization that…
+</section>
+<section data-field="body" class="e-content">
+<section name="5eb3" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4647" id="4647" class="graf graf--h3 graf--leading graf--title">Althea Development Update #41: Proving out Rust and Network polish</h3><p name="8843" id="8843" class="graf graf--p graf-after--h3">Since our last update we’ve managed to solve our <a href="https://medium.com/althea-mesh/cross-compiling-complex-rust-programs-for-openwrt-targets-80897fcf7648" data-href="https://medium.com/althea-mesh/cross-compiling-complex-rust-programs-for-openwrt-targets-80897fcf7648" class="markup--anchor markup--p-anchor" target="_blank">Rust cross compilation issues</a> pretty handily. There’s some binary size optimization that remains to be done but everything is functional now.</p><p name="de3c" id="de3c" class="graf graf--p graf-after--p">Likewise <a href="https://github.com/althea-mesh/althea_rs" data-href="https://github.com/althea-mesh/althea_rs" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Rita</a> our billing daemon continues to evolve rapidly to meet our Alpha milestones.</p><p name="5e19" id="5e19" class="graf graf--p graf-after--p">My immediate goal this week is to get the MVP firmware routers physically shipped for initial testing, this should coincide with the first major links being tested in Clatskanie OR. I’m quite happy with the firmware at this point, most of what remains is infrastructure setup like update servers and the networking exits.</p><p name="e927" id="e927" class="graf graf--p graf-after--p graf--trailing">There’s also a level of burn in validation, 24 hour packet loss tests etc are important to prove out the reliability people expect from their internet. I’ve found a few issues so far that only show up after multiple hours of uptime. I’m glad to get those solved now and not in the field.</p></div></div></section><section name="6554" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="dee5" id="dee5" class="graf graf--p graf--leading">One of the more interesting things CascadianMesh is working on are off-grid easy to deploy towers. Setting up towers can be one of the more expensive parts of running a WISP or Mesh network, unless you can find and pay for space on an existing building or tower instead.</p><p name="0f1d" id="0f1d" class="graf graf--p graf-after--p">In the Clatskanie network map there’s a ridge separating several users. They plan to bridge it with an off grid solar powered rapidly deployable tower of their own design. You’ll be able to read more about it soon on their blog.</p><figure name="d62f" id="d62f" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 628px; max-height: 1007px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 160.4%;"></div><img class="graf-image" data-image-id="1*ssdd4Qn-zkkbmlplfXHhFg.jpeg" data-width="628" data-height="1007" src="https://cdn-images-1.medium.com/max/800/1*ssdd4Qn-zkkbmlplfXHhFg.jpeg"></div><figcaption class="imageCaption">CascadianMesh team member Steve Simpier tests expandable tower assembly</figcaption></figure><p name="ffdc" id="ffdc" class="graf graf--p graf-after--figure">On a more personal note, my last day at Red Hat was last Friday, so I’m now full time on Althea. We will also be bringing on two other software developers in the next month or two bringing us to a total of 4 full time developers to move from Alpha to Beta stages before mid this year.</p><p name="d306" id="d306" class="graf graf--p graf-after--p graf--trailing">There’s a lot to do before we reach Beta status and I’m looking forward to being able to give it my fully attention.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/software-development" class="p-tag">Software Development</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/d648b06045dd"><time class="dt-published" datetime="2018-01-30T00:31:23.334Z">January 30, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-41-proving-our-rust-and-network-polish-d648b06045dd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

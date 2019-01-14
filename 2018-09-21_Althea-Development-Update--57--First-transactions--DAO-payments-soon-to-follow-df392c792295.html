@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #57: First transactions, DAO payments soon to follow</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #57: First transactions, DAO payments soon to follow</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Update Summary
+</section>
+<section data-field="body" class="e-content">
+<section name="b346" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6979" id="6979" class="graf graf--h3 graf--leading graf--title">Althea Development Update #57: First transactions, DAO payments soon to follow</h3><h4 name="a832" id="a832" class="graf graf--h4 graf-after--h3 graf--subtitle">Update Summary</h4><p name="5e24" id="5e24" class="graf graf--p graf-after--h4">We created <a href="https://github.com/althea-mesh/clarity" data-href="https://github.com/althea-mesh/clarity" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Clarity</a> a minimalist ultra-lightweight Ethereum transaction generation library that can run on any device powerful enough to reasonably sign translations.</p><p name="0fdf" id="0fdf" class="graf graf--p graf-after--p">In parallel to bandwidth payments our local network DAO’s should be ready to collect payments very soon. Since we are using Aragon as a framework for storing the money it’s mostly audited already. Which should dramatically reduce our time to payments with real money.</p><p name="f612" id="f612" class="graf graf--p graf-after--p">Our <a href="https://github.com/althea-mesh/althea-firmware/releases" data-href="https://github.com/althea-mesh/althea-firmware/releases" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">latest release</a> contains only minor networking fixes, at this point networking is stable enough that we will need an order of magnitude more users to really start running into new bugs.</p><p name="27d8" id="27d8" class="graf graf--p graf-after--p">Two of our own will be traveling to Colombia next week to help setup our first South American deployment.</p><figure name="8a24" id="8a24" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 525px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 75%;"></div><img class="graf-image" data-image-id="1*S289safAEVc3D9l2UxHvXw.jpeg" data-width="1600" data-height="1200" src="https://cdn-images-1.medium.com/max/800/1*S289safAEVc3D9l2UxHvXw.jpeg"></div><figcaption class="imageCaption">High density environment in Medellín Colombia</figcaption></figure><h4 name="88a8" id="88a8" class="graf graf--h4 graf-after--figure">Short term roadmap</h4><p name="1c75" id="1c75" class="graf graf--p graf-after--h4">Our goals right now are essentially payments and documentation ASAP.</p><p name="78f3" id="78f3" class="graf graf--p graf-after--p">We have new networks which will quadruple our number of active users in the next few weeks but without some form of real money billing these are all experiments. Not decentralized businesses.</p><p name="82ed" id="82ed" class="graf graf--p graf-after--p">We’re focusing on getting Network DAO payments online and integrated with Aragon. Not only is this simpler than bandwidth payments technically since the heavy lifting has already been done for us. But it’s also better suited to bootstrapping a network. Where bandwidth payments may start very small anyways.</p><p name="45c3" id="45c3" class="graf graf--p graf-after--p">The other side of this problem is that unless you know how to poke around github repos or talk to us how to get started with Althea is a difficult thing to figure out. Like I said in my last update we’re really riding on our website refresh to achieve that.</p><h4 name="7b11" id="7b11" class="graf graf--h4 graf-after--p">Why Clarity?</h4><p name="6f66" id="6f66" class="graf graf--p graf-after--h4">After significant research we found that the Parity Ethereum client is simply <a href="https://github.com/paritytech/parity-common/issues/27" data-href="https://github.com/paritytech/parity-common/issues/27" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">inappropriate</a> for embedded environments. This left us in the awkward position of having to furnish our own lightweight transaction generation library.</p><p name="3070" id="3070" class="graf graf--p graf-after--p">After a detour of a couple of weeks Clarity is capable sending functional <a href="https://ropsten.etherscan.io/tx/0x610d92cc64e64a4e5eac0ecd1aafbd7fb1e7b17983f15f4d6aca77a19f63897e" data-href="https://ropsten.etherscan.io/tx/0x610d92cc64e64a4e5eac0ecd1aafbd7fb1e7b17983f15f4d6aca77a19f63897e" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">transactions</a> from a variety of environments. Most importantly for us is support for the MIPS CPU architecture which is very popular in routers for it’s ease of manufacture and low cost.</p><p name="c5ca" id="c5ca" class="graf graf--p graf-after--p">There still needs to be some work done on documentation and sending transactions to contracts specifically, but I’m very happy with the progress.</p><h4 name="7d70" id="7d70" class="graf graf--h4 graf-after--p">Dual purpose WiFi cards</h4><p name="879d" id="879d" class="graf graf--p graf-after--h4">Althea is transmission medium agnostic, meaning no matter what connections it is provided it will make the best use of them possible.</p><p name="217f" id="217f" class="graf graf--p graf-after--p">A connection that’s always been less useful than people seem to expect is meshing using internal omnidirectional radios. In general Althea deployments focus on high performance point to point antennas and leave the internal router radios to normal ‘home router’ tasks. Mainly home wifi.</p><p name="85e9" id="85e9" class="graf graf--p graf-after--p">It’s possible to use a internal wifi card for meshing with AdHoc mode but only if you give up on using it for your own Home wifi. Giving up either home radio sucks, routers obviously provide both frequencies because both are useful.</p><p name="d379" id="d379" class="graf graf--p graf-after--p">Earlier this week I decided to investigate MeshPoint (802.11s) a WiFi standard that attempts to codify those ‘whole home wifi’ setups for connection sharing by creating a group network that many access points can join and connect over.</p><p name="4ab5" id="4ab5" class="graf graf--p graf-after--p">This is of course perfect for Althea, which simply sees yet another connection to make use of.</p><p name="e238" id="e238" class="graf graf--p graf-after--p">The real surprise is that careful inspection of the driver capabilities using the iw tool reveal that with 802.11s we can have our cake and eat it to. By <a href="https://github.com/althea-mesh/althea-firmware/pull/50" data-href="https://github.com/althea-mesh/althea-firmware/pull/50" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">sharing</a> the same device for multiple access points we can provide connectivity without sacrificing user radio functionality. At least on devices that have up to date WiFi hardware.</p><p name="1c36" id="1c36" class="graf graf--p graf-after--p graf--trailing">It remains to be seen if the contention of running two networks on a single WiFi card causes problems.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/rustlang" class="p-tag">Rustlang</a>, <a href="https://medium.com/tag/mesh-networking" class="p-tag">Mesh Networking</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/df392c792295"><time class="dt-published" datetime="2018-09-21T19:35:12.558Z">September 21, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-57-first-transactions-dao-payments-soon-to-follow-df392c792295" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #51: Easier debugging in the field</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #51: Easier debugging in the field</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Here’s our Alpha 5 release
+</section>
+<section data-field="body" class="e-content">
+<section name="b1f8" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e38a" id="e38a" class="graf graf--h3 graf--leading graf--title">Althea Development Update #51: Easier debugging in the field</h3><p name="e800" id="e800" class="graf graf--p graf-after--h3">Here’s our <a href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.2" data-href="https://github.com/althea-mesh/althea-firmware/releases/tag/v0.1.2" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Alpha 5 release</a></p><h4 name="2208" id="2208" class="graf graf--h4 graf-after--p">What’s New in Alpha 5</h4><ul class="postList"><li name="482e" id="482e" class="graf graf--li graf-after--h4">the exits endpoint, curl or visit 192.168.10.1:4877/exits to see detailed network status for easy debugging</li><li name="68a8" id="68a8" class="graf graf--li graf-after--li">improvements to the update system to better track what’s going on</li><li name="528a" id="528a" class="graf graf--li graf-after--li">some infrastructure for payments</li><li name="e46a" id="e46a" class="graf graf--li graf-after--li graf--trailing">other bugfixes and stability improvements</li></ul></div></div></section><section name="96f6" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="ffd4" id="ffd4" class="graf graf--p graf--leading">The big feature this sprint was a proper refactor of the exit sign up workflow to actually make sense and properly accommodate rare edgecases.</p><figure name="030f" id="030f" class="graf graf--figure graf--layoutOutsetLeft graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 525px; max-height: 326px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 62%;"></div><img class="graf-image" data-image-id="1*K57P-cAenEDVo0EuuIElTQ.png" data-width="800" data-height="496" src="https://cdn-images-1.medium.com/max/600/1*K57P-cAenEDVo0EuuIElTQ.png"></div><figcaption class="imageCaption">Signup workflow</figcaption></figure><p name="bc6c" id="bc6c" class="graf graf--p graf-after--figure">There are many cases where we want to change x or y property and we need a reliable way for user devices to understand that things have been changed without disconnecting them all from the internet until they perform a manual reset.</p><p name="2657" id="2657" class="graf graf--p graf-after--p">Now instead of trying to naively sign up to every available exit at once the device will wait for the users go-ahead and provide a reset button for when things go wrong.</p><p name="14ba" id="14ba" class="graf graf--p graf-after--p">Sadly this didn’t make the cut for Alpha 5 as the ui components are not finished and tested.</p><p name="b92c" id="b92c" class="graf graf--p graf-after--p">What did make the cut for Alpha 5 are several bugfixes and a new endpoint the exits endpoint automatically checks all of the mesh properties we would usually check by hand to debug and provides a very easy way to identify problems. In the future it will be integrated into the interface so that users get a short summary of what may be causing their connection problems.</p><pre name="550e" id="550e" class="graf graf--pre graf-after--p graf--trailing">{<br> “nickname”: “us_west”,<br> “exit_settings”: {<br> “id”: {<br> “eth_address”: “0x0101010101010101010101010101010101010101”,<br> “mesh_ip”: “fd96::1337:e2f”,<br> “wg_public_key”: “1kKSpzdhI4kfqeMqch9I1bXqOUXeKN7EQBecVzW60ys=”<br> },<br> “message”: “Althea production US exist”,<br> “registration_port”: 4875,<br> “state”: “Registered”<br> }<br> “is_selected”: true,<br> “have_route”: true,<br> “is_reachable”: true,<br> “is_tunnel_working”: true,<br> },</pre></div></div></section><section name="1467" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="7c3f" id="7c3f" class="graf graf--p graf--leading">Likewise the groundwork for payments is being set out. We hope to have both the exit signup refactor and the first integration of our payments daemon gauc_rs ready for Alpha 6.</p><p name="c93b" id="c93b" class="graf graf--p graf-after--p">In this iteration guac will complete the payments workflow without actually sending said payments off to a full client to be published on the testnet. It’s been an interesting exercise really working out the payment protocol and making sure everything is solid. No huge inventions here, just chipping away at making a solid implementation.</p><figure name="b79c" id="b79c" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 1127px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 161%;"></div><img class="graf-image" data-image-id="1*zrK4DmJqWlHi3JZBNbm_fQ.png" data-width="996" data-height="1604" src="https://cdn-images-1.medium.com/max/800/1*zrK4DmJqWlHi3JZBNbm_fQ.png"></div><figcaption class="imageCaption">Very rough flowchart of payment workflow</figcaption></figure><p name="88b5" id="88b5" class="graf graf--p graf-after--figure graf--trailing">We’re aiming for early August as our target date for having testnet payments online and functioning.</p></div></div></section><section name="baa2" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="08aa" id="08aa" class="graf graf--p graf--leading">When it comes to device support I’ve had a very confusing week, I added the Zyxel Armor2 to our supported devices list with high hopes of replacing the Turris Omnia at the 300+ mbps embedded range. Only for it to create a new performance per dollar record in the wrong direction. At $160 for a pitiful 60mbps.</p><p name="70f6" id="70f6" class="graf graf--p graf-after--p">What went wrong? The Omnia runs pretty stock Cortex A9, the Zyxel runs a Krait, also an armv7 core which a higher IPC and more processing bells and whistles.</p><p name="d029" id="d029" class="graf graf--p graf-after--p">Digging into the OpenWRT port (my primary suspect) the cpu governor is fine and so is the NEON implementation. WireGuard successfully compiles and runs using vector instructions.</p><p name="b95c" id="b95c" class="graf graf--p graf-after--p">The only place the Omnia wins the spec war is it’s DDR3 vs DDR3L memory in the Zyxel. I don’t really think that’s the key component here though, memory bandwidth should be an order of magnitude higher than networking bandwidth.</p><p name="3f18" id="3f18" class="graf graf--p graf-after--p">My primary suspect at the moment is some processor specific patch that was not unstreamed by Zyxel and somehow not captured in the port.</p><p name="d98b" id="d98b" class="graf graf--p graf-after--p">I’ve decided to stop digging deeper on this device and instead look at the <a href="https://store.gl-inet.com/products/gl-b1300-home-ac-router" data-href="https://store.gl-inet.com/products/gl-b1300-home-ac-router" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">GL-B1300,</a> which also has a pretty good spec sheet on paper and ships with a similar processor.</p><p name="513f" id="513f" class="graf graf--p graf-after--p graf--trailing">If it becomes clear that the Zyxel is a part of a larger pattern of substandard performance rather than the exception I’ll start digging into kernel performance profiling and really get to the bottom of the issue.</p></div></div></section><section name="00b0" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="4b5f" id="4b5f" class="graf graf--p graf--leading graf--trailing">Our head of outreach Deborah will be in Puerto Rico doing a workshop on Althea at the <a href="https://www.eventbrite.com/e/meshing-with-data-hackathon-tickets-46167843262" data-href="https://www.eventbrite.com/e/meshing-with-data-hackathon-tickets-46167843262" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Meshing With Data</a> hackaton later this week and I will be in Toronto for the <a href="https://ournetworks.ca/" data-href="https://ournetworks.ca/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">State of Our Networks (SOON)</a> conference next month. Hopefully we can get good recordings of both presentations to share with you all.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/blockchain" class="p-tag">Blockchain</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a>, <a href="https://medium.com/tag/software-development" class="p-tag">Software Development</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/b9e67e5a699a"><time class="dt-published" datetime="2018-06-28T16:37:57.767Z">June 28, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-51-better-debugging-features-b9e67e5a699a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

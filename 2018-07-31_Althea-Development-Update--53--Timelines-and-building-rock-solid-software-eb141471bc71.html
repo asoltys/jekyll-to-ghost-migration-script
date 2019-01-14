@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #53: Timelines and building rock solid software</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #53: Timelines and building rock solid software</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I’m happy to say that we’ve brought on board 3 new developers since our last update. We’ve also expanded the marketing team to add some…
+</section>
+<section data-field="body" class="e-content">
+<section name="3033" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4d3f" id="4d3f" class="graf graf--h3 graf--leading graf--title">Althea Development Update #53: Timelines and building rock solid software</h3><p name="e4c1" id="e4c1" class="graf graf--p graf-after--h3">I’m happy to say that we’ve brought on board 3 new developers since our last update. We’ve also expanded the marketing team to add some flash to our substance.</p><p name="4353" id="4353" class="graf graf--p graf-after--p">On the subject of development we’re merging some of our longer term feature branches while bringing these new developers on board. So Alpha 7 will be a bit late.</p><p name="d685" id="d685" class="graf graf--p graf-after--p">Speaking of releases here’s a rough time-line for features.</p><h4 name="a89a" id="a89a" class="graf graf--h4 graf-after--p">Things coming in Alpha 7</h4><ul class="postList"><li name="456b" id="456b" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Exit signup refactor:</strong> It turns out there was a lot of work between a mediocre sign up solution and something we could expose to the world without concern. The new exit signup procedure is actually sufficient to verify users are human and is generally more robust to failure.</li><li name="23f1" id="23f1" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Live toggling for wan ports:</strong> One of our favorite demos is to hook up a few routers and start moving connections around, quickly demonstrating the indestructibility of the mesh routing. But there was one cable you couldn&#39;t move, the gateway WAN ports used to bridge traffic out of the mesh and onto the internet were perilously finicky. If not setup perfectly on router start any attempt to use them would fail. Now you can add/remove or change the WAN connection at any time without issues.</li></ul><h4 name="eaed" id="eaed" class="graf graf--h4 graf-after--li">Things to do before Beta 1</h4><ul class="postList"><li name="31b7" id="31b7" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">Off-chain payments code: </strong>Our first valid eth transaction back and forth is on track for Alpha 8, we hope to be testnet ready by Alpha 9 (that’s early September for those paying attention)</li><li name="7dfb" id="7dfb" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">On-chain payments code: </strong>The contract we want<strong class="markup--strong markup--li-strong"> </strong>to use for our payment channel is already complete but integration and the resulting testing will probably take a while. I’m estimating Alpha 10 before ‘on testnet’ usage doesn’t involve devs bailing out routers burning test coins all the time.</li><li name="6b5c" id="6b5c" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Peer discovery refactor: </strong>Rust is a very great language when it’s safety properties are used well, I’ve been going back over a lot of the original peering code with a fine tooth comb and the goal of higher day to day stability. I’m hoping we’ll see this in Alpha 8.</li><li name="48a0" id="48a0" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Simplified API endpoints</strong>: Early on with the router dashboard we used a /settings API to do just about everything, this was great in that it was super powerful and very quick to make, but long term we would like to avoid posting highly specific structs from the frontend. It’s a recipe for tight coupling and spaghetti code. We’ve added simplified endpoints for exit signup already and we hope to have everything else soon.</li><li name="83e6" id="83e6" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">Improved and far more helpful dashboard</strong>: Right now the dashboard is quite bare, we brought on another front end developer to really polish it from something with the right buttons to something legitimately helpful in setting up and debugging networks.</li><li name="042d" id="042d" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">OpenWRT version freeze: </strong>We keep getting caught by surprise by OpenWRT master breakage, building off of master was fine earlier on in our development cycle but it’s past time to freeze on a commit hash that we test before we update. This way we can just not update when a major device decides the latest OpenWRT build means it should brick itself .</li></ul><p name="072b" id="072b" class="graf graf--p graf-after--li graf--trailing">Overall our roadmap puts Beta 1 at early to mid September depending on how things work out. I’m looking forward to having more dev power behind the system consistently and especially to stabilize things more and step up our QA.</p></div></div></section><section name="8218" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="136f" id="136f" class="graf graf--h4 graf--leading">What does ‘stability’ mean for Althea?</h4><p name="c6e4" id="c6e4" class="graf graf--p graf-after--h4">I’ve been talking about stability a lot, it might give the impression that our Alpha releases are totally broken. That’s only partially true, while features are often incomplete my personal router is untouched since Alpha 5. It has completed multiple update cycles without the slightest bit of attention.</p><p name="6a16" id="6a16" class="graf graf--p graf-after--p">If Althea was meant to be used in low radio noise environments with a direct fiber line for backhaul like my apartment we would probably consider stability a done deal.</p><p name="a7c7" id="a7c7" class="graf graf--p graf-after--p">Maybe half of the deployments we’re working with are in technologically modern areas with accessible backhaul fiber, where internet access for consumers is simply too expensive.</p><p name="8eac" id="8eac" class="graf graf--p graf-after--p">The other half live in some of the more challenging networking environments in the world. For these people it’s often not that internet access is overpriced, but that it’s simply not sold or is of such poor quality as to be unusable.</p><p name="064a" id="064a" class="graf graf--p graf-after--p">Ultra-high latency, reordered packets, flaky connections, and protocol non compliant devices litter these sorts of environments.</p><p name="ab59" id="ab59" class="graf graf--p graf-after--p">Somewhere in between California and Australia there’s an ISP that will buffer Wireguard packets and play them back out of order 10 <strong class="markup--strong markup--p-strong">seconds</strong> later. All while prioritizing ICMP, HTTP, and HTTPS, making the issue almost impossible to detect.</p><p name="4402" id="4402" class="graf graf--p graf-after--p">From the perspective of a deployment in Australia this was Althea just not working.</p><p name="b5bb" id="b5bb" class="graf graf--p graf-after--p">Our first outage report for the Clatskine test network was caused by supposedly ipv6 complaint point to point links suddenly generating spikes of 300ms latency versus their usual 10ms when exposed to pings to ff02::1.</p><p name="a656" id="a656" class="graf graf--p graf-after--p">From the perspective of the Clastkine network this was Althea just not working.</p><p name="a79e" id="a79e" class="graf graf--p graf-after--p">Slack and many other websites firewall off TCP MSS autonegotiation. This means they hardcode the segment size of their traffic to a standard 1500 byte frame. It’s extra insidious because protocol complaint websites will work flawlessly and you’ll sit around wondering what’s going on.</p><p name="4263" id="4263" class="graf graf--p graf-after--p">From the perspective of any user of that build this was Althea just not working.</p><p name="f591" id="f591" class="graf graf--p graf-after--p graf--trailing">I think I’ve made my point. The actual ‘mesh networking’ is just the beginning, if we really want to make a tool that can withstand the sort of environments where people need Althea most it’s not enough for it to work, it has to be indestructible.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/tech" class="p-tag">Tech</a>, <a href="https://medium.com/tag/rust" class="p-tag">Rust</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a>, <a href="https://medium.com/tag/mesh-networks" class="p-tag">Mesh Networks</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/eb141471bc71"><time class="dt-published" datetime="2018-07-31T11:58:14.598Z">July 31, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-53-timelines-and-building-rock-solid-software-eb141471bc71" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>

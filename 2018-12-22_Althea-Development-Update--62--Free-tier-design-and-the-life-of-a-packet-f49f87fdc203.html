@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Althea Development Update #62: Free tier design and the life of a packet</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Althea Development Update #62: Free tier design and the life of a packet</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Since our last update bandwidth payments have been making their way down the stabilization pipeline we’re going to roll out Alpha 12 to…
+</section>
+<section data-field="body" class="e-content">
+<section name="a7a0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a704" id="a704" class="graf graf--h3 graf--leading graf--title">Althea Development Update #62: Free tier design and the life of a packet</h3><figure name="3575" id="3575" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 394px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 56.3%;"></div><img class="graf-image" data-image-id="1*4tTRxcty18WNQNg8tfCsiA.jpeg" data-width="6000" data-height="3375" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*4tTRxcty18WNQNg8tfCsiA.jpeg"></div></figure><p name="ac8c" id="ac8c" class="graf graf--p graf-after--figure">Since our last update bandwidth payments have been making their way down the stabilization pipeline we’re going to roll out Alpha 12 to our networks shortly after Christmas. At which point all routers will be paying for their internet access in Rinkeby Eth that we will airdrop into existing networks.</p><p name="2b18" id="2b18" class="graf graf--p graf-after--p">The Network DAO Aragon organization has also made significant progress it’s available on Rinkeby <a href="https://rinkeby.aragon.org/#/test2.aragonid.eth/" data-href="https://rinkeby.aragon.org/#/test2.aragonid.eth/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">here</a>. Feel free to play around with it.</p><p name="058d" id="058d" class="graf graf--p graf-after--p">Our next release is going to be the big one. Beta 1, which is by definition feature complete and ready to be used (cautiously) with real money in the real world.</p><h4 name="d2fe" id="d2fe" class="graf graf--h4 graf-after--p">Implementing the free tier</h4><p name="7b80" id="7b80" class="graf graf--p graf-after--h4">The last major feature we need to implement to reach Beta 1 is enforcement. What you actually do if people don’t pay.</p><p name="4dba" id="4dba" class="graf graf--p graf-after--p">Althea doesn’t ever actually cut anyone off, a free tier with limited bandwidth is provided gratis to help users get setup and generally use the internet. All the routers in the network agree not to bill each other for the free tier level of traffic.</p><p name="58cb" id="58cb" class="graf graf--p graf-after--p">The exact speed of the free tier is decided by the local network organization.</p><p name="ab09" id="ab09" class="graf graf--p graf-after--p">Having the free tier be enforced with a speed limit at all is a little anachronistic for Althea. Like I explained in our <a href="https://medium.com/althea-mesh/metered-bandwidth-on-althea-e366219d98a6" data-href="https://medium.com/althea-mesh/metered-bandwidth-on-althea-e366219d98a6" class="markup--anchor markup--p-anchor" target="_blank">billing blog post</a> connection speeds are hardly reflective of internet usage experience.</p><p name="484f" id="484f" class="graf graf--p graf-after--p">But it’s much easier to implement a speed limit than it is to make layers of prioritization based on bidding.</p><h4 name="e809" id="e809" class="graf graf--h4 graf-after--p">The life of a packet in an Althea network</h4></div><div class="section-inner sectionLayout--outsetColumn"><figure name="9014" id="9014" class="graf graf--figure graf--layoutOutsetCenter graf-after--h4"><div class="aspectRatioPlaceholder is-locked" style="max-width: 1000px; max-height: 373px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 37.3%;"></div><img class="graf-image" data-image-id="1*1D5AxaFfnYQy99D-_php7A.png" data-width="3825" data-height="1425" src="https://cdn-images-1.medium.com/max/1000/1*1D5AxaFfnYQy99D-_php7A.png"></div><figcaption class="imageCaption">Network flow for releases ≤ Alpha 12</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="1f9d" id="1f9d" class="graf graf--p graf-after--figure">I’ll expand on each part of this diagram in later blog posts. But to focus in on what we’re changing in Beta 1 lets talk traffic queuing.</p><p name="aeaa" id="aeaa" class="graf graf--p graf-after--p">In the Alpha 12 diagram the only queue operation we have is fq_codel, which is a traffic prioritization algorithm designed to try and reduce latency and make everyone’s connection ‘feel fast’.</p><p name="66eb" id="66eb" class="graf graf--p graf-after--p">If you have any interest in the plumbing of the internet I recommend this talk from around the time Codel was first being designed. It’s an excelent source of background, intuition, and tooling.</p><p name="1737" id="1737" class="graf graf--p graf-after--p"><a href="https://www.youtube.com/watch?v=qbIozKVz73g&amp;t=13s" data-href="https://www.youtube.com/watch?v=qbIozKVz73g&amp;t=13s" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Bufferbloat: Dark Buffers in the Internet</a></p><p name="f365" id="f365" class="graf graf--p graf-after--p">As powerful as Codel-derived tools have become since that talk a careful reading of the <a href="https://www.bufferbloat.net/projects/codel/wiki/CakeTechnical/" data-href="https://www.bufferbloat.net/projects/codel/wiki/CakeTechnical/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">documentation</a> will make it obvious that a few suboptimal decisions where made in this first network design.</p><p name="f8ef" id="f8ef" class="graf graf--p graf-after--p">The codel operator on the router side doesn’t actually serve any useful purpose as it’s can’t identify connections because of the encryption.</p><p name="f67d" id="f67d" class="graf graf--p graf-after--p">Likewise the codel queue operation on the exit side isn’t ideally placed. While this one can at least see the traffic it’s supposed to be managing that management is performed over every connection coming in and out of the exit.</p><p name="cb62" id="cb62" class="graf graf--p graf-after--p">This can lead to globally optimal decisions but is less sensitive to a single routers problems.</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="d694" id="d694" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 1000px; max-height: 373px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 37.3%;"></div><img class="graf-image" data-image-id="1*BGfnoM8o__fUzrOOjn5BgQ.png" data-width="3798" data-height="1416" src="https://cdn-images-1.medium.com/max/1000/1*BGfnoM8o__fUzrOOjn5BgQ.png"></div><figcaption class="imageCaption">Network flow for releases ≥ Beta 1</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="4083" id="4083" class="graf graf--p graf-after--figure">Our new design for Beta 1 moves the codel operators so that they have a better view of traffic to manage and are generally closer to the ‘edge’ of the network.</p><p name="8c64" id="8c64" class="graf graf--p graf-after--p">With one placed in front of the router LAN and the other placed after mesh routing in order to prevent a single router from hogging traffic across the network.</p><p name="3262" id="3262" class="graf graf--p graf-after--p">I’ll be keeping a close eye on the new codel layout and hopefully find ineffective operations a little faster this time.</p><p name="902c" id="902c" class="graf graf--p graf-after--p">The other addition to our queue system is HTB (Hierarchical token bucket, no relation to crypto tokens), which is a pretty old fashioned bandwidth allocator. Using HTB we can reduce peers to the free tier level of bandwidth.</p><p name="617e" id="617e" class="graf graf--p graf-after--p">Sadly HTB isn’t really flexible enough to operate across interfaces. Meaning we can’t pool multiple interfaces worth of free tier bandwidth in such a way that also makes sense from a billing perspective.</p><p name="818f" id="818f" class="graf graf--p graf-after--p graf--trailing">Like I said before the use of a speed in the free tier system at all is not ideal, but it will do until we can implement a more elegant way of accounting for ‘unsold’ traffic.</p></div></div></section>
+</section>
+<footer><p class="p-tags">Tagged in <a href="https://medium.com/tag/tech" class="p-tag">Tech</a>, <a href="https://medium.com/tag/networking" class="p-tag">Networking</a>, <a href="https://medium.com/tag/internet" class="p-tag">Internet</a>, <a href="https://medium.com/tag/cryptocurrency" class="p-tag">Cryptocurrency</a></p><p>By <a href="https://medium.com/@kilpatrickjustin" class="p-author h-card">Justin Kilpatrick</a> on <a href="https://medium.com/p/f49f87fdc203"><time class="dt-published" datetime="2018-12-22T19:05:45.246Z">December 22, 2018</time></a>.</p><p><a href="https://medium.com/@kilpatrickjustin/althea-development-update-62-free-tier-design-and-the-life-of-a-packet-f49f87fdc203" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on January 9, 2019.</p></footer></article></body></html>
